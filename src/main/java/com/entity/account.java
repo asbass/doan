@@ -21,7 +21,7 @@ import lombok.Data;
 @Data
 @Entity 
 @Table(name = "accounts")
-public class account  implements Serializable{
+public class Account  implements Serializable{
 	@Id
 	String username;
 	String password;

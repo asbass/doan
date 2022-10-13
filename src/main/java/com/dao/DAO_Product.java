@@ -27,7 +27,7 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 	@Query(value="Select c.name, ISNULL(sum(odt.Quantity),0) from Categories c  "
 			+ "inner join Products p on c.Id = p.CategoryId "
 			+ "inner join OrderDetails odt on p.Id = odt.ProductId "
-			+ "inner join Orders o on odt.OrderId = o.Id "
+			+ "inner join cart o on odt.OrderId = o.Id "
 			+ "Where cast(o.CreateDate as date) >= DateAdd(day,-365,cast(getdate() as date)) "
 			+ "group by c.name",nativeQuery = true)
 	List<Object[]> numberOfProductSoldByType();
@@ -35,7 +35,7 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 	@Query(value="Select c.name, ISNULL(sum(odt.Quantity),0) from Categories c  "
 			+ "inner join Products p on c.Id = p.CategoryId "
 			+ "inner join OrderDetails odt on p.Id = odt.ProductId "
-			+ "inner join Orders o on odt.OrderId = o.Id "
+			+ "inner join cart o on odt.Orderid = o.Id "
 			+ "group by c.name",nativeQuery = true)
 	List<Object[]> getPercentByCate();
 
@@ -60,9 +60,9 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 	List<Object[]> availableRate();
 
 	@Query(value="Select top 10 p.Name, count(odt.productid) as mostSold "
-			+ "From OrderDetails odt inner join Products p  "
+			+ "From Orderdetails odt inner join Products p  "
 			+ "on odt.ProductId = p.Id "
 			+ "group by p.Name "
-			+ "Order by mostSold desc",nativeQuery = true)
+			+ "cart by mostSold desc",nativeQuery = true)
 	List<Object[]> top10Product();
 }

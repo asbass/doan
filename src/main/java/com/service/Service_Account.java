@@ -4,21 +4,21 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.entity.account;
+import com.entity.Account;
 
 
 
 @Service
 public interface Service_Account {
-	account findById(String username);
+	Account findById(String username);
 
-	List<account> getAdministrators();
+	List<Account> getAdministrators();
 
-	List<account> findAll();
+	List<Account> findAll();
 
-	account create(account account);
+	Account create(Account account);
 
-	account update(account account);
+	Account update(Account account);
 
 	Long getTotalAccount();
 

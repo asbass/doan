@@ -28,9 +28,9 @@ public class ServiceImpl_Order implements Service_Order{
 		cart order = mapper.convertValue(orderData, cart.class);
 		dao.save(order);
 		
-		TypeReference<Collection<OrderDetail>> type = new TypeReference<Collection<OrderDetail>>() {};
+		TypeReference<List<OrderDetail>> type = new TypeReference<List<OrderDetail>>() {};
 		List<OrderDetail> details = mapper.convertValue(orderData.get("orderDetails"), type)
-				.stream().peek(d->d.setCart(order)).collect(Collectors.toList());
+				.stream().peek(d->d.setOrder(order)).collect(Collectors.toList());
 		ddao.saveAll(details);
 		
 		return order;

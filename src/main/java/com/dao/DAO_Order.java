@@ -11,11 +11,11 @@ import com.entity.cart;
 @Repository
 public interface DAO_Order extends JpaRepository<cart, Long>{
 
-	@Query("Select o from Order o Where o.account.username= ?1")
+	@Query("Select o from cart o Where o.account.username= ?1")
 	List<cart> findByUsername(String username);
 
 	/*Summary*/
-	@Query(value = "Select count(*) from Orders where CreateDate = CAST( GETDATE() AS Date)",nativeQuery= true)
+	@Query(value = "Select count(*) from cart where CreateDate = CAST( GETDATE() AS Date)",nativeQuery= true)
 	Long getTodayOrder();
 
 	@Query(value = "Select t.last7Days as 'date', ISNULL(sum(price*quantity),0) as ' totalPayment' "
@@ -34,8 +34,8 @@ public interface DAO_Order extends JpaRepository<cart, Long>{
 			+ "	Select DateAdd(day,-6,cast(getdate()as date)) "
 			+ "	Union all "
 			+ "	Select DateAdd(day,-7,cast(getdate()as date)) "
-			+ ") t Left Join Orders t1 on cast(t.last7Days as date) = Cast(t1.CreateDate as date) "
-			+ "left join OrderDetails dt on  t1.Id = dt.OrderId "
+			+ ") t Left Join cart t1 on cast(t.last7Days as date) = Cast(t1.CreateDate as date) "
+			+ "left join Orderdetails dt on  t1.Id = dt.OrderId "
 			+ "Group by cast(t.last7Days as Date)", nativeQuery = true)
 	List<Object[]> getRevenueLast7Days();
 }

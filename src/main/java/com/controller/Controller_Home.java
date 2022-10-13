@@ -8,7 +8,7 @@ public class Controller_Home {
 	
 	@GetMapping({"","home/index"})
 	public String home() {
-		return "redirect:/product/list";
+		return "index";
 	}
 	
 	@GetMapping({"admin","admin/home/index"})
