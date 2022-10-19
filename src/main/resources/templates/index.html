@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://wwww.thymeleaf.org" th:fragment="dynamic(main)">
 
 <head>
     <!-- basic -->
@@ -234,66 +234,17 @@
             <div class="row">
                  <div class="carousel">
                     <div class="carousel-title">
-                        <p>Sản phẩm bán chạy nhất</p>
+                        <p>Sản phẩm mới nhất</p>
                         <a href="">Xem tất cả<i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="carousel-box">
                         <button class="button-carousel button-left"><i class="fas fa-arrow-left"></i></button>
                         <div class="carousel-product">
-                            <div class="card text-left">
+                            <div class="card text-left"  th:each="item:${items}">
                                 <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
                                 <div class="card-body">
-                                    <h4 class="card-title">Pô xe</h4>
-                                    <p class="card-text">20000</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Body</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Body</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Title</h4>
-                                    <p class="card-text">Body</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Thắng xe</h4>
-                                    <p class="card-text">5000000</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Thắng xe</h4>
-                                    <p class="card-text">5000000</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Thắng xe</h4>
-                                    <p class="card-text">5000000</p>
-                                </div>
-                            </div>
-                            <div class="card text-left">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Thắng xe</h4>
-                                    <p class="card-text">5000000</p>
+                                    <h4 class="card-title" th:utext="${item.getName()}"></h4>
+                                    <p class="card-text"th:utext="${item.getPrice()}"></p>
                                 </div>
                             </div>
                         </div>
