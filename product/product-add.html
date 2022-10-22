@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <main class="container">
+        <header class="row text-center">
+
+        </header>
+        <section class="row">
+            <div class="col mt-4">
+                <form action="" method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 style="color: blue;">ADD PRODUCT</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="form-group">
+                                            <label for="productID">Product ID: </label>
+                                            <input type="text"
+                                              class="form-control" name="productID" id="productID" aria-describedby="helpId" placeholder="productID">
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="name">Name product: </label>
+                                              <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="name">
+                                          </div>
+                                            <div class="form-group">
+                                              <label for="price">Price: </label>
+                                              <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId" placeholder="price">
+                                          </div>
+                                            <div class="form-group">
+                                              <label for="CategoryID">CategoryID: </label>
+                                              <select class="form-control" name="catergoryID" id="CategoryID">
+                                                  <option value="">1</option>
+                                                  <option value="">2</option>
+                                                  <option value="">3</option>
+                                              </select>
+                                          </div>
+                                            
+                                    </div>
+                                    <div class="col-4">
+                                        <img src="/1.jpg" width="90%" 
+                                        class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                                        <div class="form-group">
+                                            <label for="image">Product Image: </label>
+                                            <input type="file" name="image" id="image" class="form-control" placeholder="image" aria-describedby="helpId">
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="Date">Date: </label>
+                                            <input type="date" class="form-control" name="Date" id="Date" aria-describedby="helpId" placeholder="Date">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Status: </label><br>
+                                            <input type="radio" id="Available1" name="Available" value="Available1">
+                                            <label for="age1">Available</label><br>
+                                            <input type="radio" id="Available2" name="Available" value="Available2">
+                                            <label for="age2">not Available</label><br>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                          <label for="Description">Description: </label>
+                                          <textarea class="form-control" name="Description" id="Description" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <button class="btn btn-success">
+                                    New
+                                </button>
+                                <button class="btn btn-primary">
+                                    Save
+                                </button>
+                                <button class="btn btn-danger">
+                                    Delete
+                                </button>   
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+      </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
