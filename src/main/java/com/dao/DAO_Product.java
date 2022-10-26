@@ -8,20 +8,21 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.entity.Product;
+import com.entity.Products;
 
 
 @Repository
-public interface DAO_Product extends JpaRepository<Product, Integer>{
+public interface DAO_Product extends JpaRepository<Products, Integer>{
 
-	@Query("Select p From Product p Where p.category.id=?1")
-	List<Product> findByCategoryId(String cid);
+	@Query("Select p From Products p Where p.category.id=?1")
+	List<Products> findByCategoryId(String cid);
 	
-	@Query("Select p From Product p Where p.category.id=?1")
-	Page<Product> findByCategoryId(String cid,Pageable pageable);
-
+	@Query("Select p From Products p Where p.category.id=?1")
+	Page<Products> findByCategoryId(String cid,Pageable pageable);
+	@Query("Select o From Products o WHERE  o.name Like ?1")
+    List<Products> findByKeywords(String keywords);
 	/*Summary*/
-	@Query("Select Count(p) from Product p where p.available = true")
+	@Query("Select Count(p) from Products p where p.available = true")
 	Long getAvailable();
 
 	@Query(value="Select c.name, ISNULL(sum(odt.Quantity),0) from Categories c  "
@@ -65,4 +66,5 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 			+ "group by p.Name "
 			+ "cart by mostSold desc",nativeQuery = true)
 	List<Object[]> top10Product();
+	
 }

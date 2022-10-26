@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.entity.Product;
+import com.entity.Products;
 import com.service.Service_Product;
 
 @CrossOrigin("*")
@@ -23,23 +23,23 @@ public class RestController_Product {
 	@Autowired private Service_Product productService;
 	
 	@GetMapping()
-	public List<Product>getAll(){
+	public List<Products>getAll(){
 		return productService.findAll();
 	}
 	
 	@GetMapping("{id}")
-	public Product getOne(@PathVariable("id")Integer id) {
+	public Products getOne(@PathVariable("id")Integer id) {
 		return productService.findById(id);
 	}
 	
 	@PostMapping
-	public Product create(@RequestBody Product product) {
-		return productService.create(product);
+	public Products create(@RequestBody Products products) {
+		return productService.create(products);
 	}
 	
 	@PutMapping("{id}")
-	public Product update(@RequestBody Product product,@PathVariable("id")Integer id) {
-		return productService.update(product);
+	public Products update(@RequestBody Products products,@PathVariable("id")Integer id) {
+		return productService.update(products);
 	}
 	
 	@DeleteMapping("{id}")

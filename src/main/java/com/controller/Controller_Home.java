@@ -1,24 +1,31 @@
 package com.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dao.DAO_Product;
-import com.entity.Product;
+import com.entity.Products;
+import com.service.Service_Product;
+import com.service.SessionService;
 
 @Controller
 public class Controller_Home {
     
-    @Autowired
-    DAO_Product pd;
+    @Autowired private Service_Product daoPD;
+    
+    @Autowired private SessionService session;
 	
-	@GetMapping({"","home/index"})
+    @GetMapping({"","home/index"})
 	public String home(Model model) {
-	    List<Product> list = pd.findAll();
+	    List<Products> list = daoPD.findAll();
 	    if(list != null) {
 	        model.addAttribute("items",list);
 	    }

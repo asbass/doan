@@ -5,23 +5,23 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.entity.Product;
+import com.entity.Products;
 
 public interface Service_Product{
 
-	Page<Product> findAll(Pageable pageable);
+	Page<Products> findAll(Pageable pageable);
 	
-	Page<Product> findByCategoryID(String cid,Pageable pageable);
+	Page<Products> findByCategoryID(String cid,Pageable pageable);
 	
-	List<Product> findAll();
+	List<Products> findAll();
 
-	Product findById(Integer productID);
+	Products findById(Integer productID);
 
-	List<Product> findByCategoryID(String cid);
+	List<Products> findByCategoryID(String cid);
 
-	Product create(Product product);
+	Products create(Products products);
 
-	Product update(Product product);
+	Products update(Products products);
 
 	void delete(Integer id);
 
@@ -36,5 +36,7 @@ public interface Service_Product{
 	List<Object[]> availableRate();
 
 	List<Object[]> top10Product();
+	
+	List<Products> findByKeywords(String keywords);
 
 }

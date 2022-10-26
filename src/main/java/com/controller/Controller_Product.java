@@ -15,16 +15,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.entity.Product;
+import com.dao.DAO_Product;
+import com.entity.Products;
 import com.service.Service_Product;
+import com.service.SessionService;
 
 @Controller
-@RequestMapping("product")
+@RequestMapping("products")
 public class Controller_Product {
-	@Autowired private Service_Product productService;
+	@Autowired private Service_Product daoPD;
+	
+	@Autowired private SessionService session;
+	
 	
 	@GetMapping("list")
 	public String list(Model model,@RequestParam(value="cid",defaultValue = "null")Optional<String>cid,
@@ -32,17 +38,17 @@ public class Controller_Product {
 			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort) {
 		//Pageable
 		Pageable pageable = PageRequest.of(p.orElse(0), 6);
-		Page<Product> list = null;
+		Page<Products> list = null;
 		Sort sortOption = null;
 		//sort by category
 		if(!cid.get().equals("null") && sort.get().equals("null")) {
-			list = productService.findByCategoryID(cid.get(),pageable);
+			list = daoPD.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
 		}
 		//onload, no sort option
 		if(cid.get().equals("null") && sort.get().equals("null")){
-			list = productService.findAll(pageable);
+			list = daoPD.findAll(pageable);
 			model.addAttribute("items", list);
 		}
 		//sort by price and date
@@ -65,7 +71,7 @@ public class Controller_Product {
 				
 			}
 			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
-			list = productService.findAll(pageable);
+			list = daoPD.findAll(pageable);
 			model.addAttribute("items", list);
 		}
 		
@@ -88,7 +94,7 @@ public class Controller_Product {
 				
 			}
 			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
-			list = productService.findByCategoryID(cid.get(),pageable);
+			list = daoPD.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
 		}
@@ -98,14 +104,23 @@ public class Controller_Product {
 				.collect(Collectors.toList());
 		model.addAttribute("pageNumbers", pageNumbers);
 		model.addAttribute("sort", sort.get());
-		return "index";
+		return "products";
 	}
 	
 	@GetMapping("detail/{id}")
 	public String detail(Model model, @PathVariable("id")Integer productID) {
-		Product item = productService.findById(productID);
+		Products item = daoPD.findById(productID);
 		model.addAttribute("item", item);
-		return "product/detail";
+		return "products/detail";
+	}
+	
+	@PostMapping("product")
+	public String search(Model model,@RequestParam(value = "keywords") Optional<String> kw) {
+	    String keywords = kw.orElse(session.get("keywords", ""));
+        session.set("keywords", keywords);
+        List<Products> page = daoPD.findByKeywords("%"+keywords+"%");
+        model.addAttribute("page", page);
+	    return "products";
 	}
 	
 }

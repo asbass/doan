@@ -127,13 +127,13 @@
                                 <div class="collapse navbar-collapse" id="navbarsExample04">
                                     <ul class="navbar-nav mr-auto">
                                         <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Trang chủ</a>
+                                            <a class="nav-link" th:href="@{/home/index}">Trang chủ</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="about.html">Cửa hàng</a>
+                                            <a class="nav-link" th:href="@{/products/list}">Cửa hàng</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#gallary">Bộ sưu tập</a>
+                                            <a class="nav-link" href="gallary">Bộ sưu tập</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="fashion.html">Giới thiệu </a>
@@ -144,8 +144,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="search">
-                                <form action="/action_page.php">
-                                    <input class="form_sea" type="text" placeholder="Nhập mã sản phẩm hoặc tên sản phẩm" name="search">
+                                <form action="/products/product" method="post">
+                                    <input class="form_sea" name="keyword" type="search" placeholder="Nhập mã sản phẩm hoặc tên sản phẩm" >
                                     <button type="submit" class="seach_icon"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
