@@ -27,5 +27,5 @@ public class OrderDetail  implements Serializable{
 	Product product;
 	@ManyToOne
 	@JoinColumn(name = "Orderid")
-	cart cart;
+	cart order;
 }

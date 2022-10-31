@@ -11,11 +11,11 @@ import com.entity.cart;
 @Repository
 public interface DAO_Order extends JpaRepository<cart, Long>{
 
-	@Query("Select o from Order o Where o.account.username= ?1")
+	@Query("Select o from cart o Where o.account.username= ?1")
 	List<cart> findByUsername(String username);
 
 	/*Summary*/
-	@Query(value = "Select count(*) from Orders where CreateDate = CAST( GETDATE() AS Date)",nativeQuery= true)
+	@Query(value = "Select count(*) from cart where CreateDate = CAST( GETDATE() AS Date)",nativeQuery= true)
 	Long getTodayOrder();
 
 	@Query(value = "Select t.last7Days as 'date', ISNULL(sum(price*quantity),0) as ' totalPayment' "

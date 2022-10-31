@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.DAO_Account;
 import com.dao.DAO_Authority;
-import com.entity.account;
+import com.entity.Account;
 import com.entity.Authority;
 import com.service.Service_Authority;
 
@@ -19,7 +19,7 @@ public class ServiceImpl_Authority implements Service_Authority{
 	
 	@Override
 	public List<Authority> findAuthoritiesOfAdministrators() {
-		List<account> accounts = accdao.getAdministrators();
+		List<Account> accounts = accdao.getAdministrators();
 		return authdao.authoritiesOf(accounts);
 	}
 

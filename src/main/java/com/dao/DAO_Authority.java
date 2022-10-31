@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.entity.Authority;
-import com.entity.account;
+import com.entity.Account;
 
 @Repository
 public interface DAO_Authority extends JpaRepository<Authority, Integer>{
 
 	@Query("Select Distinct a From Authority a where a.account IN ?1")
-	List<Authority> authoritiesOf(List<account> accounts);
+	List<Authority> authoritiesOf(List<Account> accounts);
 
 	@Query("Select a From Authority a where a.account.username like ?1")
 	List<Authority> getOneByRole(String username);

@@ -17,7 +17,7 @@ public class ServiceImpl_OrderDetail implements Service_OrderDetail{
 	
 	@Override
 	public Double getTodayIncome() {
-		return daoDetail.findAll().stream().filter(e->e.getCart().getCreateDate().toString().equals(xdate.convertToPattern(new Date(), "yyyy-MM-dd"))).mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
+		return daoDetail.findAll().stream().filter(e->e.getOrder().getCreateDate().toString().equals(xdate.convertToPattern(new Date(), "yyyy-MM-dd"))).mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
 	}
 	@Override
 	public Double getTotalIncome() {

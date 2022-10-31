@@ -71,10 +71,12 @@ public class RestController_Summary {
 		return map;
 	}
 	
-	@GetMapping("fifthRow")
-	public Map<String,List<Object[]>> fifthRow(){
-		Map<String,List<Object[]>> map = new HashMap<>();
-		map.put("topCustomer", accountService.top10Customer());
-		return map;
-	}
+    /*
+     * @GetMapping("fifthRow")
+     * public Map<String,List<Object[]>> fifthRow(){
+     * Map<String,List<Object[]>> map = new HashMap<>();
+     * map.put("topCustomer", accountService.top10Customer());
+     * return map;
+     * }
+     */
 }

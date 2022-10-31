@@ -98,7 +98,7 @@ public class Controller_Product {
 				.collect(Collectors.toList());
 		model.addAttribute("pageNumbers", pageNumbers);
 		model.addAttribute("sort", sort.get());
-		return "product/list";
+		return "index";
 	}
 	
 	@GetMapping("detail/{id}")

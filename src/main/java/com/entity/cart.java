@@ -36,9 +36,9 @@ public class cart  implements Serializable{
 	Boolean status;
 	@ManyToOne
 	@JoinColumn(name = "Username")
-	account account;
+	Account account;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cart")
+	@OneToMany(mappedBy = "order")
 	List<OrderDetail> orderDetails;
 }

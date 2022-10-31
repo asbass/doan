@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.entity.account;
+import com.entity.Account;
 import com.service.Service_Account;
 
 @CrossOrigin("*")
@@ -24,7 +24,7 @@ public class RestController_Account {
 	@Autowired private Service_Account accountService;
 	
 	@GetMapping("accounts")
-	public List<account>getAccounts(@RequestParam("admin")Optional <Boolean>admin){
+	public List<Account>getAccounts(@RequestParam("admin")Optional <Boolean>admin){
 		if(admin.orElse(false)) {
 			return accountService.getAdministrators();
 		}
@@ -32,12 +32,12 @@ public class RestController_Account {
 	}
 	
 	@PostMapping("accountsManage")
-	public account create(@RequestBody account account) {
+	public Account create(@RequestBody Account account) {
 		return accountService.create(account);
 	}
 	
 	@PutMapping("accounts/{id}")
-	public account update(@RequestBody account account,@PathVariable("id")String username) {
+	public Account update(@RequestBody Account account,@PathVariable("id")String username) {
 		return accountService.update(account);
 	}
 }
