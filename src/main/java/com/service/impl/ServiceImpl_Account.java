@@ -32,7 +32,10 @@ public class ServiceImpl_Account implements Service_Account{
 	public Account create(Account account) {
 		return accDao.save(account);
 	}
-
+    @Override
+    public void delete(String id) {
+        accDao.deleteById(id);
+    }
 	@Override
 	public Account update(Account account) {
 		return accDao.save(account);

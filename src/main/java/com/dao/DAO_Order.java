@@ -34,8 +34,8 @@ public interface DAO_Order extends JpaRepository<cart, Long>{
 			+ "	Select DateAdd(day,-6,cast(getdate()as date)) "
 			+ "	Union all "
 			+ "	Select DateAdd(day,-7,cast(getdate()as date)) "
-			+ ") t Left Join cart t1 on cast(t.last7Days as date) = Cast(t1.CreateDate as date) "
-			+ "left join Orderdetails dt on  t1.Id = dt.OrderId "
+			+ ") t Left Join cart t1 on cast(t.last7Days as date) = Cast(t1.Createdate as date) "
+			+ "left join Odersdetails dt on  t1.Id = dt.order_id "
 			+ "Group by cast(t.last7Days as Date)", nativeQuery = true)
 	List<Object[]> getRevenueLast7Days();
 }

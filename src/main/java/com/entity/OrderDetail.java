@@ -15,7 +15,7 @@ import lombok.Data;
 @SuppressWarnings("serial")
 @Data
 @Entity 
-@Table(name = "Orderdetails")
+@Table(name = "Odersdetails")
 public class OrderDetail  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +23,9 @@ public class OrderDetail  implements Serializable{
 	Double price;
 	Integer quantity;
 	@ManyToOne
-	@JoinColumn(name = "Productid")
+	@JoinColumn(name = "product_id")
 	Product product;
 	@ManyToOne
-	@JoinColumn(name = "Orderid")
-	cart order;
+	@JoinColumn(name = "order_id")
+	cart cart;
 }

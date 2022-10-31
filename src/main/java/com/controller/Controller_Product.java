@@ -19,23 +19,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.Product;
+import com.service.SessionService;
 import com.service.Service_Product;
 
 @Controller
 @RequestMapping("product")
 public class Controller_Product {
 	@Autowired private Service_Product productService;
-	
+	   @Autowired
+	    SessionService session;
 	@GetMapping("list")
-	public String list(Model model,@RequestParam(value="cid",defaultValue = "null")Optional<String>cid,
+	public String list(Model model,@RequestParam(value="cid",defaultValue = "null")Optional<String>cid, 
 			@RequestParam("page")Optional<Integer>p,
-			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort) {
+			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort
+			,@RequestParam(value="keywords",defaultValue = "null") Optional<String> kw) {
 		//Pageable
 		Pageable pageable = PageRequest.of(p.orElse(0), 6);
 		Page<Product> list = null;
 		Sort sortOption = null;
+		//sort by search
+        if(!cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")) {
+            list = productService.findAllByNameLike(kw.get(),pageable);
+            model.addAttribute("items", list);
+            model.addAttribute("keywords", kw.get());
+        }
 		//sort by category
-		if(!cid.get().equals("null") && sort.get().equals("null")) {
+		if(!cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")) {
 			list = productService.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
@@ -98,9 +107,9 @@ public class Controller_Product {
 				.collect(Collectors.toList());
 		model.addAttribute("pageNumbers", pageNumbers);
 		model.addAttribute("sort", sort.get());
-		return "index";
+		return "products";
 	}
-	
+
 	@GetMapping("detail/{id}")
 	public String detail(Model model, @PathVariable("id")Integer productID) {
 		Product item = productService.findById(productID);

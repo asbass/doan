@@ -20,22 +20,25 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 	@Query("Select p From Product p Where p.category.id=?1")
 	Page<Product> findByCategoryId(String cid,Pageable pageable);
 
+	
+	Page<Product> findAllByNameLike(String keywords, Pageable pageable);
+
 	/*Summary*/
 	@Query("Select Count(p) from Product p where p.available = true")
 	Long getAvailable();
 
 	@Query(value="Select c.name, ISNULL(sum(odt.Quantity),0) from Categories c  "
 			+ "inner join Products p on c.Id = p.CategoryId "
-			+ "inner join OrderDetails odt on p.Id = odt.ProductId "
-			+ "inner join cart o on odt.OrderId = o.Id "
+			+ "inner join Odersdetails odt on p.Id = odt.product_id "
+			+ "inner join cart o on odt.order_id = o.Id "
 			+ "Where cast(o.CreateDate as date) >= DateAdd(day,-365,cast(getdate() as date)) "
 			+ "group by c.name",nativeQuery = true)
 	List<Object[]> numberOfProductSoldByType();
 
 	@Query(value="Select c.name, ISNULL(sum(odt.Quantity),0) from Categories c  "
 			+ "inner join Products p on c.Id = p.CategoryId "
-			+ "inner join OrderDetails odt on p.Id = odt.ProductId "
-			+ "inner join cart o on odt.Orderid = o.Id "
+			+ "inner join Odersdetails odt on p.Id = odt.product_id "
+			+ "inner join cart o on odt.order_id = o.Id "
 			+ "group by c.name",nativeQuery = true)
 	List<Object[]> getPercentByCate();
 
@@ -59,10 +62,10 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 			+ "from table1 t1 inner join table2 t2 on t1.catename = t2.catename", nativeQuery = true)
 	List<Object[]> availableRate();
 
-	@Query(value="Select top 10 p.Name, count(odt.productid) as mostSold "
-			+ "From Orderdetails odt inner join Products p  "
-			+ "on odt.ProductId = p.Id "
+	@Query(value="Select top 10 p.Name, count(odt.product_id) as mostSold "
+			+ "From Odersdetails odt inner join Products p  "
+			+ "on odt.product_id = p.id "
 			+ "group by p.Name "
-			+ "cart by mostSold desc",nativeQuery = true)
+			+ "order by mostSold desc",nativeQuery = true)
 	List<Object[]> top10Product();
 }

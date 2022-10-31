@@ -29,6 +29,7 @@ public class ServiceImpl_Product implements Service_Product{
 	public List<Product> findByCategoryID(String cid) {
 		return pDao.findByCategoryId(cid);
 	}
+	
 
 	@Override
 	public Product create(Product product) {
@@ -49,7 +50,10 @@ public class ServiceImpl_Product implements Service_Product{
 	public Page<Product> findAll(Pageable pageable) {
 		return pDao.findAll(pageable);
 	}
-
+	@Override
+    public Page<Product> findAllByNameLike(String keywords,Pageable pageable) {
+        return pDao.findAllByNameLike(keywords,pageable);
+    }
 	@Override
 	public Page<Product> findByCategoryID(String cid,Pageable pageable) {
 		return pDao.findByCategoryId(cid,pageable);

@@ -8,7 +8,7 @@ public class Controller_Home {
 	
 	@GetMapping({"","home/index"})
 	public String home() {
-		return "index";
+		return "layout/trangchu";
 	}
 	
 	@GetMapping({"admin","admin/home/index"})

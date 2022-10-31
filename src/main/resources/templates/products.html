@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>romofyi</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <!--[if lt IE 9]>
+       <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Trang chủ</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->    
+    <link rel="stylesheet" th:href="@{|/css/bootstrap.min.css|}">
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{|/css/style.css|}">
+    <!-- Responsive-->
+    <link rel="stylesheet" th:href="@{|/css/responsive.css|}">
+    <!-- fevicon -->
+    <link rel="icon" th:href="@{|/images/fevicon.png|}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" th:href="@{|/css/jquery.mCustomScrollbar.min.css|}">
+    <!-- Tweaks for older IEs-->
+    <link  href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!--Carousel-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+	<base href="/" />
    </head>
    <!-- body -->
    <body class="main-layout footer_to90 project_page">
@@ -161,88 +167,16 @@
       <div id="project" class="project">
          <div class="container">
          
-          
             <div class="row">
             <div class="product_main">
              
-                  <div class="project_box ">
+                  <div th:each="p:${items.content}"  class="project_box ">
                      <div class="dark_white_bg" ><img  src="images/shoes1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
+                     <h3>[[${p.name}]] [[${p.price}]]</h3>
                   </div>
             
              
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/shoes2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/shoes5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-            
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/tisat1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/tisat2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/tisat5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-            
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/mix1.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box ">
-                     <div class="dark_white_bg" ><img  src="images/mix2.png" alt="#"/></div>
-                     <h3 >Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix3.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix4.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-               
-                  <div class="project_box">
-                     <div class="dark_white_bg" ><img  src="images/mix5.png" alt="#"/></div>
-                     <h3>Short Openwork Cardigan $120.00</h3>
-                  </div>
-              
+                 
                <div class="col-md-12">
                   <a class="read_more" href="#">See More</a>
                </div>

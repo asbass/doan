@@ -4,6 +4,7 @@ app.controller("account-ctrl",function($scope,$http,$location){
     $scope.form = {};
     $scope.roles = [];
     $scope.selection =[];
+    
     // $scope.initialRoles= [{name:"Customer",value:'CUST'},{name:"Staff",value:'STAF'},{name:"Director",value:'DIRE'}]
     $scope.initialize = function(){
 		//load all roles
@@ -24,6 +25,7 @@ app.controller("account-ctrl",function($scope,$http,$location){
 		})
 		
 		$scope.reset();
+		$scope.form.datecreate = new Date();
 	}
 	
 	//Chọn roles
@@ -57,7 +59,9 @@ app.controller("account-ctrl",function($scope,$http,$location){
 	
 	//Hiển thị lên form
     $scope.edit = function(item){
+	console.log(item)
 		$scope.form = angular.copy(item);
+		$scope.form.datecreate = new Date(item.datecreate);
 		$scope.getOneByRole(item.username);
 		$('#pills-home-tab').tab('show');
     }
@@ -65,6 +69,7 @@ app.controller("account-ctrl",function($scope,$http,$location){
     $scope.create = function(){
 		var item = angular.copy($scope.form);
 		$http.post(`/rest/accountsManage`,item).then(resp=>{
+			$scope.items;
 			$scope.items.push(resp.data);
 			console.log(resp.data);
 			//thêm phân quyền
@@ -113,10 +118,10 @@ app.controller("account-ctrl",function($scope,$http,$location){
 		
 	}
 
-    //Remove account
-/*    $scope.delete = function(item){
-		$http.delete(`/rest/products/${item.id}`).then(resp=>{
-			var index = $scope.items.findIndex(p=>p.id == item.id);
+	//    Remove account
+  $scope.delete = function(item){
+		$http.delete(`/rest/accounts/${item.username}`).then(resp=>{
+			var index = $scope.items.findIndex(p=>p.username == item.username);
 			$scope.items.splice(index,1);
 			$scope.reset();
 			alert('Xoá sản phẩm thành công!');
@@ -125,13 +130,15 @@ app.controller("account-ctrl",function($scope,$http,$location){
 			alert('Lỗi xoá sản phẩm!')
 			console.log("Error ",err);
 		})
-	}*/
+		}
 
 	//reset form
 	$scope.reset = function(){
 		$scope.form = {
 			photo:'user.png',
 		}
+		$scope.form.datecreate = new Date();
+
     }
     //Upload Hình
     $scope.imageChanged = function(files){

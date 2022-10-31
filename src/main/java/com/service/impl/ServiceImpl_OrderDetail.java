@@ -12,16 +12,15 @@ import com.service.Service_OrderDetail;
 @Service
 public class ServiceImpl_OrderDetail implements Service_OrderDetail{
 
-	@Autowired private DAO_OrderDetail daoDetail;
+	@Autowired private DAO_OrderDetail ss;
 	@Autowired private XDate xdate;
 	
-	@Override
-	public Double getTodayIncome() {
-		return daoDetail.findAll().stream().filter(e->e.getOrder().getCreateDate().toString().equals(xdate.convertToPattern(new Date(), "yyyy-MM-dd"))).mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
-	}
-	@Override
-	public Double getTotalIncome() {
-		return daoDetail.findAll().stream().mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
-	}
-
+    @Override
+    public Double getTodayIncome() {
+        return ss.findAll().stream().filter(e->e.getCart().getCreateDate().toString().equals(xdate.convertToPattern(new Date(), "yyyy-MM-dd"))).mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
+    }
+    @Override
+    public Double getTotalIncome() {
+        return ss.findAll().stream().mapToDouble(item->item.getPrice()*item.getQuantity()).sum();
+    }
 }

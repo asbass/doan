@@ -1,60 +1,117 @@
 <div class="card">
-    <div class="card-header">
-        <h3 class="mt-2">ACCOUNT EDITION</h3>
-    </div>
-    <div class="card-body">
-    	<div class="row">
-    		<div class="col-sm-4 text-center">
-    			<label for="image">
-    				<img ng-src="/assets/avatar/{{form.photo}}" style="max-width: 100%" height="150px" />
-    			</label>
-    		</div>
-    		<div class="col-sm-8">
-    			<div class="row">
-    				<div class="form-group col-sm-6">
-    					<label>Username</label>
-    					<input ng-model="form.username" class="form-control" />
-    				</div>
-    				<div class="form-group col-sm-6">
-    					<label>Password</label>
-    					<input ng-model="form.password" class="form-control" type="password"/>
-    				</div>
-    			</div>
-    			<div class="row">
-    				<div class="form-group col-sm-6">
-    					<label>Photo</label>
-    					<input type="file" class="form-control" id="image" 
-    					onchange="angular.element(this).scope().imageChanged(this.files)">
-    				</div>
-    				<div class="form-group col-sm-6">
-    					<label>Roles</label>
-    					<div class="form-control">
-    						<div class="form-check ps-0">
-						      	<label ng-repeat="r in roles" class="form-check-label me-2" for="inlineFormCheck">
-						      	<input ng-model="selectedRole" ng-value="r" class="form-check-input1" type="checkbox" id="inlineFormCheck" ng-checked="selection.indexOf(r)>-1" ng-click="toggleRole(r)">
-							        {{r.name}}
-							     </label>
-						    </div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="row">
-    				<div class="form-group col-sm-6">
-    					<label>Full-name</label>
-    					<input ng-model="form.fullname" class="form-control"/>
-    				</div>
-    				<div class="form-group col-sm-6">
-    					<label>Email</label>
-    					<input ng-model="form.email" class="form-control" type="email"/>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-    <div class="card-footer text-center">
-    	<button ng-click="create()" class="btn btn-primary"><b class="fa-solid fa-square-plus"></b> Create</button>
-    	<button ng-click="update()" class="btn btn-success"><b class="fa-solid fa-square-pen"></b> Update</button>
-    	<!-- <button ng-click="delete(form)"  class="btn btn-danger"><b class="fa-solid fa-trash-can"></b> Delete</button> -->
-    	<button ng-click="reset()" class="btn btn-info"><b class="fa-solid fa-rotate"></b> Reset</button>
-    </div>
-</div>
+	<div class="card-header">
+		<h3 class="mt-2">ACCOUNT EDITION</h3>
+	</div>
+	<div class="card-body">
+		<div class="row">
+			<div class="col-sm-4 text-center">
+				<label for="image"> <img
+					ng-src="/assets/avatar/{{form.photo}}" name="photo" style="max-width: 100%"
+					height="150px" />
+				</label>
+			</div>
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<label>Username</label> <input ng-model="form.username"
+							class="form-control" />
+					</div>
+					<div class="form-group col-sm-6">
+						<label>Password</label> <input ng-model="form.password"
+							class="form-control" type="password" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<label>Photo</label> <input type="file" class="form-control"
+							id="photo"
+							onchange="angular.element(this).scope().imageChanged(this.files)">
+					</div>
+					<div class="form-group col-sm-6">
+						<label>Roles</label>
+						<div class="form-control">
+							<div class="form-check ps-0">
+								<label ng-repeat="r in roles" class="form-check-label me-2"
+									for="inlineFormCheck"> <input ng-model="selectedRole"
+									ng-value="r" class="form-check-input1" type="checkbox"
+									id="inlineFormCheck" ng-checked="selection.indexOf(r)>-1"
+									ng-click="toggleRole(r)"> {{r.name}}
+								</label>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+						<div class="form-group col-sm-6">
+							<label>Date Birth</label> <input ng-model="form.datebirth"
+								class="form-control" type="date" />
+						</div>
+					
+					<div class="form-group col-sm-6">
+						<label>Email</label> <input ng-model="form.email"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<label>Gender</label>
+						<div class="form-control">
+							<div class="form-check ps-0">
+								<input ng-model="form.sex" class="form-check-input1"
+									name="sex" ng-value="true" type="radio" id="inlineFormCheck">
+								<label class="form-check-label" for="inlineFormCheck">
+									Nam </label> <input ng-model="form.sex"
+									class="form-check-input2 ms-2" name="sex" ng-value="false"
+									type="radio" id="inlineFormCheck2"> <label
+									class="form-check-label" for="inlineFormCheck2" > Nữ </label>
+							</div>
+						</div>
+						</div>
+						<div class="form-group col-sm-6">
+							<label>Status</label>
+							<div class="form-control">
+								<div class="form-check ps-0">
+									<input ng-model="form.status" class="form-check-input1"
+										name="status" ng-value="true" type="radio"
+										id="inlineFormCheck"> <label class="form-check-label"
+										for="inlineFormCheck"> Yes </label> <input
+										ng-model="form.status" class="form-check-input2 ms-2"
+										name="status" ng-value="false" type="radio"
+										id="inlineFormCheck2"> <label class="form-check-label"
+										for="inlineFormCheck2"> No </label>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<label>Full-name</label> <input ng-model="form.fullname"
+								class="form-control" />
+						</div>
+						<div class="form-group col-sm-6">
+							<label>Date create</label> <input ng-model="form.datecreate"
+								class="form-control" type="date" disabled />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<button ng-click="create()" class="btn btn-primary">
+				<b class="fa-solid fa-square-plus"></b> Create
+			</button>
+			<button ng-click="update()" class="btn btn-success">
+				<b class="fa-solid fa-square-pen"></b> Update
+			</button>
+			<button ng-click="delete(form)" class="btn btn-danger">
+				<b class="fa-solid fa-trash-can"></b> Delete
+			</button>
+			<button ng-click="reset()" class="btn btn-info">
+				<b class="fa-solid fa-rotate"></b> Reset
+			</button>
+		</div>
+	</div>

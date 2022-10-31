@@ -17,8 +17,8 @@ public interface DAO_Account extends JpaRepository<Account, String>{
 
 	@Query(value="Select a.Username, a.Fullname, a.email, a.photo, "
 			+ "sum(odt.price * odt.quantity) as totalPayment "
-			+ "From accounts a inner join orders o on a.Username = o.Username "
-			+ "inner join OrderDetails odt on o.Id = odt.OrderId "
+			+ "From accounts a inner join cart o on a.Username = o.Username "
+			+ "inner join Odersdetails odt on o.Id = odt.order_id "
 			+ "Group by a.Username, a.Fullname, a.email, a.photo "
 			+ "order by totalPayment desc",nativeQuery = true)
 	List<Object[]> top10Customer();
