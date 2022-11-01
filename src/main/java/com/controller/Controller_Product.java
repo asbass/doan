@@ -37,7 +37,7 @@ public class Controller_Product {
 			@RequestParam("page")Optional<Integer>p,
 			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort) {
 		//Pageable
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 10);
 		Page<Products> list = null;
 		Sort sortOption = null;
 		//sort by category
@@ -70,7 +70,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = daoPD.findAll(pageable);
 			model.addAttribute("items", list);
 		}
@@ -93,7 +93,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = daoPD.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
@@ -114,12 +114,12 @@ public class Controller_Product {
 		return "products/detail";
 	}
 	
-	@PostMapping("product")
-	public String search(Model model,@RequestParam(value = "keywords") Optional<String> kw) {
+	@RequestMapping("search")
+	public String search(Model model,@RequestParam(value = "keyword") Optional<String> kw) {
 	    String keywords = kw.orElse(session.get("keywords", ""));
         session.set("keywords", keywords);
         List<Products> page = daoPD.findByKeywords("%"+keywords+"%");
-        model.addAttribute("page", page);
+        model.addAttribute("items", page);
 	    return "products";
 	}
 	

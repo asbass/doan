@@ -19,7 +19,7 @@ public interface DAO_Product extends JpaRepository<Products, Integer>{
 	
 	@Query("Select p From Products p Where p.category.id=?1")
 	Page<Products> findByCategoryId(String cid,Pageable pageable);
-	@Query("Select o From Products o WHERE  o.name Like ?1")
+	@Query("Select o From Products o WHERE  o.name like ?1")
     List<Products> findByKeywords(String keywords);
 	/*Summary*/
 	@Query("Select Count(p) from Products p where p.available = true")

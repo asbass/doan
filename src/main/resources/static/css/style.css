@@ -360,7 +360,7 @@ ul.social_icon li a:hover {
 }
 
 .header_midil {
-    padding: 22px 0;
+    padding: 10px 0;
 }
 
 .logo {
@@ -369,7 +369,7 @@ ul.social_icon li a:hover {
 }
 
 .logo>img {
-    width: 80px;
+    width: 60px;
 }
 
 ul.conta_icon li a i {
@@ -657,6 +657,18 @@ ul.right_icon li img {
     margin: 0px 0px 100px 0px;
 }
 
+.project .container{
+	display: flex;
+	justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.page-link{
+	color: #183661;
+	font-size: 1rem;
+}
+
 .project .titlepage {
     text-align: left;
 }
@@ -667,24 +679,25 @@ ul.right_icon li img {
     border-bottom: #f2c119 solid 5px;
 }
 
-.project .titlepage p {
-    font-size: 17px;
-    line-height: 30px;
-    font-weight: 400;
-    padding-top: 10px;
-    color: #fff;
+.product_catagory{
+	background-color: green;
 }
 
 .product_main {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .project .project_box {
     text-align: center;
-    max-width: 17.3%;
+    max-width: 17.03%;
+    padding: 10px;
     margin: 0 15px 20px 15px;
+}
+
+.project .project_box::hover{
+	opacity:0.5;
 }
 
 .dark_white_bg {
