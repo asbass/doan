@@ -679,8 +679,10 @@ ul.right_icon li img {
     border-bottom: #f2c119 solid 5px;
 }
 
-.product_catagory{
-	background-color: green;
+.product_category {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
 }
 
 .product_main {
@@ -694,10 +696,7 @@ ul.right_icon li img {
     max-width: 17.03%;
     padding: 10px;
     margin: 0 15px 20px 15px;
-}
-
-.project .project_box::hover{
-	opacity:0.5;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .dark_white_bg {
@@ -1269,3 +1268,8 @@ ul.right_icon li img {
 .button-left {
     left: 0px;
 }
+
+/** trang chi tiet **/
+
+/* CSS RESET */
+

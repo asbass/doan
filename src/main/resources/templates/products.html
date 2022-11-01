@@ -157,50 +157,41 @@
     </header>
       <!-- end header inner -->
       <!-- end header -->
-      <div class="blue_bg">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Featured Products</h2>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
       <!-- project section -->
       <div id="project" class="project">
          <div class="container">
             <div class="row">
-            <div class="product_category w-100">
-            	<ul class="nav w-100 d-flex justify-content-end">
-  					<li class="nav-item">
-    					Sắp xếp theo giá
-  					</li>
-  					<li class="nav-item">
-    					<select>
-                            <option value="">---Chọn---</option>
-                            <option value="">Từ 2 - 4 triệu</option>
-                            <option value="">Từ 5 - 7 triệu</option>
-                            <option value="">Từ 8 - 10 triêu</option>
-                        </select>
-  					</li>
-  					<li class="nav-item">
-    					Tên hãng
-  					</li>
-  					<li class="nav-item">
-    					<select>
-                            <option value="">---Chọn---</option>
-                            <option value="">Michelin</option>
-                            <option value="">Bridgestone</option>
-                            <option value="">Maxxis</option>
-                        </select>
-  					</li>
-				</ul>
-            </div>
-            	<div class="product_main">
+                <div class="product_category w-100  d-flex align-items-center">
+                 	<div class="dropdown">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Danh mục sản phẩm
+                        </button>
+                        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton" th:each="c:${cates}">
+                          <a class="dropdown-item" th:each="c:${cates}" th:href="@{|/products/list?cid=${c.id}|}">[[${c.name}]]</a>
+                        </div>
+                 	</div>
+            	    <ul class="nav w-100 d-flex justify-content-end">
+  					    <li class="nav-item">
+    					    Sắp xếp theo giá&nbsp
+  					    </li>
+  					    <li class="nav-item">
+    					    <div class="dropdown">
+                                <button class="dropdown-toggle" type="button" data-toggle="dropdown">Tutorials
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                  <li><a th:href="@{|/products/list?cid=${cateID}&sortBy=priceDown|}" class="list-group-item list-group-item-action"><b><i class="fa-solid fa-arrow-down-9-1 me-2"></i></b>[[#{sidebar.highest}]]</a></li>
+                                  <li><a th:href="@{|/products/list?cid=${cateID}&sortBy=priceUp|}" class="list-group-item list-group-item-action"><b><i class="fa-solid fa-arrow-up-1-9 me-2"></i></b>[[#{sidebar.lowest}]]</a></li>
+                                  <li><a th:href="@{|/products/list?cid=${cateID}&sortBy=dateDown|}" class="list-group-item list-group-item-action"><b><i class="fa-solid fa-arrow-down-a-z me-2"></i></b>[[#{sidebar.newDate}]]</a>
+                                  </li>
+                                  <li><a th:href="@{|/products/list?cid=${cateID}&sortBy=dateUp|}" class="list-group-item list-group-item-action"><b><i class="fa-solid fa-arrow-up-z-a me-2"></i></b>[[#{sidebar.oldDate}]]</a></li>
+                                </ul>
+                              </div>
+  					    </li>
+				    </ul>
+                </div>
+            	<div class="product_main m-t-2">
                   	<div class="project_box" th:each="item:${items}">
-                     	<div class="dark_white_bg" ><img  src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="#"/></div>
+                     	<div class="dark_white_bg" ><a th:href="@{|/products/detail/${item.id}|}"><img  src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="#"/></a></div>
                      	<h3 th:utext="${item.getName()}">Short Openwork Cardigan</h3>
                      	<h3 th:utext="${item.getPrice()}">$120.00</h3>
                   	</div>

@@ -111,7 +111,7 @@ public class Controller_Product {
 	public String detail(Model model, @PathVariable("id")Integer productID) {
 		Products item = daoPD.findById(productID);
 		model.addAttribute("item", item);
-		return "products/detail";
+		return "details";
 	}
 	
 	@RequestMapping("search")
