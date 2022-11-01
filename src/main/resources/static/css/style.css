@@ -712,7 +712,7 @@ ul.right_icon li img {
     color: #1c1c1b;
     font-size: 15px;
     line-height: 20px;
-    padding: 22px 0px 0px 0px;
+    padding: 5px 0px 10px 0px;
     text-align: left;
 }
 
@@ -724,10 +724,6 @@ ul.right_icon li img {
     color: #fff;
     background: #183661;
     padding: 10px 0;
-}
-
-.project .read_more:hover {
-    background-color: #f2c119;
 }
 
 
