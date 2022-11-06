@@ -27,4 +27,6 @@ public class Authority  implements Serializable{
 	private Account account;
 	@ManyToOne  @JoinColumn(name = "roleid")
 	private Role role;
+  
+  
 }

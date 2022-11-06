@@ -25,9 +25,9 @@
 					<td>{{item.fullname}}</td>
 					<td>{{item.email}}</td>
 					<td>{{item.photo}}</td>
-					<td>{{item.sex}}</td>
+					<td>{{item.sex? 'nam':'nữ'}}</td>
 					<td>{{item.datecreate}}</td>
-					<td>{{item.status}}</td>
+					<td>{{item.status?'hoạt động' :'không hoạt động'}}</td>
         			<td>{{item.datebirth}}</td>
 					<td class="text-center">
 						<button ng-click="edit(item)" class="btn btn-warning">

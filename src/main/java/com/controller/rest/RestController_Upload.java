@@ -1,6 +1,8 @@
 package com.controller.rest;
 
 import java.io.File;
+
+import javax.servlet.ServletContext;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,6 @@ import com.service.Service_Upload;
 @RequestMapping("rest/upload")
 public class RestController_Upload {
 	@Autowired private Service_Upload uploadService;
-	
 	@PostMapping("{folder}")
 	public JsonNode upload(@PathVariable("folder") String folder,
 			@PathParam("file")MultipartFile file) {

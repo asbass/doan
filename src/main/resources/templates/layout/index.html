@@ -23,6 +23,9 @@
     <link rel="icon" th:href="@{|/images/fevicon.png|}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" th:href="@{|/css/jquery.mCustomScrollbar.min.css|}">
+    <link rel="stylesheet" th:href="@{|cart1/css/flexslider.css|}" type="text/css"
+	media="screen" />
+<link th:href="@{|cart1/css/style.css|}" rel="stylesheet" type="text/css">
     <!-- Tweaks for older IEs-->
     <link  href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -34,11 +37,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 	<base href="/" />
 </head>
 <!-- body -->
 
-<body class="main-layout">
+<body class="main-layout" ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="/images/loading.gif" alt="#" /></div>
@@ -66,6 +71,7 @@
     <!-- sidebar -->
     <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/custom.js"></script>
+   <script src="/assets/js/shopping-cart-app.js"></script>
 </body>
 
 </html>

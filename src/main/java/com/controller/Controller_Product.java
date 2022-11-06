@@ -107,14 +107,14 @@ public class Controller_Product {
 				.collect(Collectors.toList());
 		model.addAttribute("pageNumbers", pageNumbers);
 		model.addAttribute("sort", sort.get());
-		return "products";
+		return "product/products";
 	}
 
 	@GetMapping("detail/{id}")
 	public String detail(Model model, @PathVariable("id")Integer productID) {
 		Product item = productService.findById(productID);
 		model.addAttribute("item", item);
-		return "product/detail";
+		return "product/details";
 	}
 	
 }

@@ -10,6 +10,6 @@ public class Controller_ShoppingCart {
 	
 	@GetMapping("view")
 	public String view() {
-		return "cart/view";
+		return "cart/cart";
 	}
 }

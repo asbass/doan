@@ -1,0 +1,88 @@
+<html xmlns:th="http://wwww.thymeleaf.org"
+	th:replace="~{/layout/index::dynamic(~{::main})}">
+
+<main th:fragment="shopping-cart">
+	<div class="wrapper">
+		<div class="container_fullwidth">
+			<div class="container shopping-cart">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="title">Shopping Cart</h3>
+						<div class="clearfix"></div>
+						<table class="shop-table">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th>Dtails</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Price</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in cart.items">
+									<td>{{item.id}}</td>
+									<td>
+										<div class="shop-details">
+											<div class="productname">{{item.name}}</div>
+											</strong>
+											</p>
+										</div>
+									</td>
+									<td>
+										<h5>${{item.price | number:2}}</h5>
+									</td>
+									<td>
+									<td><input ng-change="cart.saveToLocalStorage()"
+										ng-model="item.qty" type="number" min="1"
+										style="width: 100px;"></td>
+									</td>
+															<td>${{item.qty*item.price | number:2}}</td>
+
+									<td>
+										<button ng-click="cart.remove(item.id)" class="btn btn-danger">
+											<i class="fa-solid fa-trash"></i> Clear
+										</button>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="6"><a th:href="@{/product/list}">Continue
+											Shopping </a>
+
+										<button class=" pull-right">Update Shopping Cart</button>
+										<button ng-click="cart.clear()" class="btn btn-danger">
+											<i class="fa-solid fa-trash"></i> Clear All
+										</button></td>
+								</tr>
+							</tfoot>
+						</table>
+						<div class="clearfix"></div>
+						<div class="row">
+
+
+							<div class="col-md-4 col-sm-6">
+								<div class="shippingbox">
+									<div class="subtotal">
+										<h5>Sub Total</h5>
+										 ${{cart.amount}}
+									</div>
+									<div class="grandtotal">
+										<h5>GRAND TOTAL</h5>
+										<span> $1.000.00 </span>
+									</div>
+									<a th:href="@{|order/checkout|}">Process To Checkout
+										</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+			
+</main>
+</html>

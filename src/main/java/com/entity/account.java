@@ -35,7 +35,7 @@ public class Account  implements Serializable{
     Boolean status;
     @Temporal(TemporalType.DATE)
     @Column(name = "datebirth")
-    Date datebirth = new Date();
+    Date datebirth;
     @JsonIgnore
     @OneToMany(mappedBy = "account")
     List<cart> cart;
