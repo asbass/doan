@@ -194,8 +194,8 @@
                   	<a th:href="@{|/products/detail/${item.id}|}">
                   		<div class=".dark_white_bg"><img class="img-fluid" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="#"/></div>
                      	<h3 th:utext="${item.getName()}"></h3>
-                     	<h3 th:utext="${item.getPrice()}"></h3>
-                     	<button class="btn btn-danger w-75">
+                     	<h5 th:utext="${item.getPrice()} + ' VNĐ'" style="color:red;"></h5>
+                     	<button class="btn btn-danger">
 							<i class="fas fa-shopping-cart"></i>
 						</button>
 					</a>

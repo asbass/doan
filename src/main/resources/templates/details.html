@@ -20,12 +20,11 @@
 <body>
     <!-- header -->
     <!-- end header -->
-
     <main role="main">
         <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
         <div class="container mt-4">
             <div id="thongbao" class="alert alert-danger d-none face" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -54,15 +53,15 @@
                                         <span class="fa fa-star"></span>
                                     </div>
                                 </div>
+                                <p class="product-description">[[*{description}]]</p>
                                 <h4 class="price">Giá: <span>[[*{price}]]</span></h4>
                                 <div class="form-group">
                                     <label for="soluong">Số lượng đặt mua:</label>
-                                    <input type="number" value="1" class="form-control" id="soluong" name="soluong">
+                                    <input type="number" value="1" class="form-control" id="soluong" name="soluong" min="1" max="100">
                                 </div>
                                 <div class="action">
                                     <a class="add-to-cart btn btn-default" id="btnThemVaoGioHang">Thêm vào giỏ hàng</a>
                                 </div>
-                                <p class="product-description">[[*{description}]]</p>
                             </div>
 
                         </div>

@@ -491,10 +491,12 @@ ul.right_icon li img {
 
 .banner_main {
     background: url(../images/Background-black.jpg);
-    padding: 97px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     min-height: 680px;
+    display: flex;
+    align-items: center;
 }
 
 .blodark {
@@ -613,6 +615,11 @@ ul.right_icon li img {
     background-repeat: no-repeat;
 }
 
+.six_box img{
+	width: calc(200%/6);
+	object-fit: cover;
+}
+
 .bluedark_bg {
     background: #183661;
 }
@@ -692,11 +699,16 @@ ul.right_icon li img {
 }
 
 .project .project_box {
-    text-align: center;
     max-width: 17.03%;
     padding: 10px;
     margin: 0 15px 20px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.project_box a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .dark_white_bg {
@@ -712,7 +724,7 @@ ul.right_icon li img {
     color: #1c1c1b;
     font-size: 15px;
     line-height: 20px;
-    padding: 5px 0px 10px 0px;
+    padding: 5px 0px 5px 0px;
     text-align: left;
 }
 
