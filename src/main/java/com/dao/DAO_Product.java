@@ -68,4 +68,7 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 			+ "group by p.Name "
 			+ "order by mostSold desc",nativeQuery = true)
 	List<Object[]> top10Product();
+	
+	@Query("Select p From Product p WHERE  p.name like ?1")
+	List<Product> findByKeywords(String keyword);
 }

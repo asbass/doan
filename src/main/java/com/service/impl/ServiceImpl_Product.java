@@ -89,4 +89,9 @@ public class ServiceImpl_Product implements Service_Product{
 	public List<Object[]> top10Product() {
 		return pDao.top10Product();
 	}
+	
+	@Override
+    public List<Product> findByKeywords(String keyword) {
+        return pDao.findByKeywords(keyword);
+    }
 }

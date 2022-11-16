@@ -34,7 +34,7 @@ public class Controller_Product {
 			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort
 			,@RequestParam(value="keywords",defaultValue = "null") Optional<String> kw) {
 		//Pageable
-		Pageable pageable = PageRequest.of(p.orElse(0), 6);
+		Pageable pageable = PageRequest.of(p.orElse(0), 10);
 		Page<Product> list = null;
 		Sort sortOption = null;
 		//sort by search
@@ -73,7 +73,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findAll(pageable);
 			model.addAttribute("items", list);
 		}
@@ -96,7 +96,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 6, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
@@ -115,6 +115,15 @@ public class Controller_Product {
 		Product item = productService.findById(productID);
 		model.addAttribute("item", item);
 		return "product/details";
+	}
+	
+	@RequestMapping("search")
+	public String search(Model model,@RequestParam(value = "keyword") Optional<String> kw) {
+	    String keywords = kw.orElse(session.get("keywords", ""));
+        session.set("keywords", keywords);
+        List<Product> page = productService.findByKeywords("%"+keywords+"%");
+        model.addAttribute("items", page);
+	    return "products";
 	}
 	
 }

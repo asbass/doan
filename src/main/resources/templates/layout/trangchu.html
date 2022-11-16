@@ -9,7 +9,7 @@
                     <div class="text-bg">
                         <h2> <span class="blodark"> LK.CAR </span> <br>THẾ GIỚI PHỤ KIỆN OTO</h2>
                         <p>NƠI BÁN PHỤ KIỆN XE ĐẸP VÀ RẺ </p>
-                        <a class="read_more" href="#">Mua ngay</a>
+                        <a class="read_more" th:href="@{/product/list}">Mua ngay</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -51,14 +51,14 @@
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx yellow_bg">
-                        <i><img src="/images/wiperblades.png" alt="#"/></i>
-                        <span>Chổi quẹt nước</span>
+                        <i><img src="/images/technology.png" alt="#"/></i>
+                        <span>Đồ công nghệ</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx bluedark_bg">
                         <i><img src="/images/wing.png" alt="#"/></i>
-                        <span>Cánh</span>
+                        <span>Nội thất</span>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
     </div>
     <!-- end six_box section -->
     <!-- project section -->
-     <div id="project" class="project">
+    <div id="project" class="project">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -79,19 +79,22 @@
                  <div class="carousel">
                     <div class="carousel-title">
                         <p>Sản phẩm mới nhất</p>
-                        <a href="">Xem tất cả<i class="fas fa-angle-right"></i></a>
+                        <a th:href="@{/product/list}">Xem tất cả<i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="carousel-box">
                         <button class="button-carousel button-left"><i class="fas fa-arrow-left"></i></button>
-                        <div class="carousel-product">
-                            <div class="card text-left"  th:each="item:${items}">
-                                <a href=""><img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt=""></a>
-                                <div class="card-body">
-                                    <h4 class="card-title" th:utext="${item.getName()}"></h4>
-                                    <p class="card-text"th:utext="${item.getPrice()}"></p>
-                                </div>
-                            </div>
-                        </div>
+	                        <div class="carousel-product">
+	                            <div class="card text-left" th:each="item:${items}">
+		                            <a th:href="@{|/product/detail/${item.id}|}">
+		                                <img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="">
+		                                <div class="card-body">
+		                                    <h2 th:utext="${item.getName()}"></h2>
+		                                    <span class="" th:utext="${item.getPrice()}"></span>
+		                                </div>
+		                                <button class="btn btn-outline-danger w-50 m-1">Add Cart</button>
+		                            </a>
+	                            </div>
+	                        </div>
                         <button class="button-carousel button-right"><i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
@@ -121,14 +124,14 @@
             </div>
             <div class="row">
                 <div class="button_banner2">
-                    <a class="read_more" href="#">Mua ngay</a>
+                    <a class="read_more" th:href="@{/product/list}">Mua ngay</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- end fashion section -->
     <!-- news section -->
-    <div class="news">
+    <div class="news" id="gallary">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -138,9 +141,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="gallary gallary_1"></div>
-                <div class="gallary gallary_2"></div>
-                <div class="gallary gallary_3"></div>
+                <div class="col-md-12 gallary-item">
+                    <div class="item"><img src="/images/product-1.jpg" alt="" class="img-fluid"></div>
+                    <div class="item"><img src="/images/product-2.jpg" alt="" class="img-fluid"></div>
+                    <div class="item"><img src="/images/product-3.jpg" alt="" class="img-fluid"></div>
+                    <div class="item"><img src="/images/product-4.jpg" alt="" class="img-fluid"></div>
+                    <div class="item"><img src="/images/product-5.jpg" alt="" class="img-fluid"></div>
+                    <div class="item"><img src="/images/product-6.jpg" alt="" class="img-fluid"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -173,5 +181,6 @@
             </div>
         </div>
     </div>
+    <!-- end three_box section -->
     </main>
 </html>

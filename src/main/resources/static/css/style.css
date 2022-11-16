@@ -287,6 +287,9 @@ ul.social_icon li a {
     background-color: #183661;
     float: left;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: 31px;
     border-radius: 100%;
     font-size: 17px;
@@ -377,13 +380,13 @@ ul.conta_icon li a i {
 }
 
 ul.conta_icon li a {
-    color: #202020;
+    color: #202020 !important;
     font-size: 17px;
 }
 
 ul.conta_icon li a:hover {
     color: #183661;
-    text-decoration: underline !important;
+    text-decoration: none !important;
 }
 
 ul.right_icon {
@@ -460,8 +463,11 @@ ul.right_icon li img {
 }
 
 .search {
-    padding: 24px 0;
     text-align: right;
+}
+
+.form_search{
+	margin: 0px !important;
 }
 
 .form_sea {
@@ -477,6 +483,7 @@ ul.right_icon li img {
 .seach_icon {
     position: absolute;
     margin-left: -25px;
+    margin-top: 7px;
     z-index: 999;
     background: transparent;
     padding: 3px 0px 0px 0px;
@@ -613,6 +620,11 @@ ul.right_icon li img {
     background-repeat: no-repeat;
 }
 
+.six_box img{
+	width: calc(200%/6);
+	object-fit: cover;
+}
+
 .bluedark_bg {
     background: #183661;
 }
@@ -643,18 +655,20 @@ ul.right_icon li img {
     font-weight: bold;
 }
 
-
 /** end six_box section **/
 
 
 /** project section **/
 
+#project{
+	margin: 0px 0px 100px 0px;
+}
+
 .project {
-    background: url(../images/product_bg.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-color: #FCFDF2;
     padding: 90px 0 90px 0;
-    margin: 0px 0px 100px 0px;
 }
 
 .project .container{
@@ -696,7 +710,19 @@ ul.right_icon li img {
     max-width: 17.03%;
     padding: 10px;
     margin: 0 15px 20px 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+    border: solid 2px rgba(255,255,255, 0.027);
+}
+
+.project_box:hover img{
+	transform: scale(1.2);
+}
+
+.project_box a:hover{
+	color: black !important;
 }
 
 .dark_white_bg {
@@ -1194,7 +1220,26 @@ ul.right_icon li img {
 .carousel-product .card {
     transition: 1s;
     width: 16.67%;
+    height: 350px !important;
     position: absolute;
+    color: yellow;
+}
+
+.carousel-product .card a{
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+  	justify-content: space-between;
+  	position: relative;
+}
+
+.carousel-product .card a:hover{
+	color: black !important;
+}
+
+.carousel-product .card a .card-body {
+	position: absolute;
+	bottom: 7%;
 }
 
 .carousel-product .card:nth-child(1) {

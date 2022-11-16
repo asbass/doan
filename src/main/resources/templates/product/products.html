@@ -6,17 +6,18 @@
 	<!-- end header inner -->
 	<!-- end header -->
 	<!-- project section -->
-	<div id="project" class="project">
+	<div class="project">
 		<div class="container">
 			<div class="row">
 				<div class="product_category w-100  d-flex align-items-center">
 					<div class="dropdown">
-						<button class="btn btn-dark dropdown-toggle" type="button"
+						<button class="btn btn-outline-warning dropdown-toggle" type="button"
 							id="dropdownMenuButton" data-toggle="dropdown"
 							aria-haspopup="true" aria-expanded="false">Danh mục sản
 							phẩm</button>
 						<div class="dropdown-menu w-100"
 							aria-labelledby="dropdownMenuButton" th:each="c:${cates}">
+							<a class="dropdown-item" th:href="@{|/product/list|}">Tất Cả</a>
 							<a class="dropdown-item" th:each="c:${cates}"
 								th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a>
 						</div>
@@ -60,15 +61,17 @@
 									src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg"
 									alt="#" />
 							</div>
-							<h3 th:utext="${item.getName()}"></h3>
-							<h3 th:utext="${item.getPrice()}"></h3>
+							<h2 th:utext="${item.getName()}"></h2>
+							<span th:utext="${item.getPrice()}"></span>
 
 						</a>
-						<button class="btn btn-danger"
-							th:classappend="${item.available}?'':disabled"
-							th:attr="ng-click=@{|cart.add(${item.id})|}">
-							<i class="fa-solid fa-cart">add to cart</i>
-						</button>
+						<div>
+							<button class="btn btn-outline-warning"
+								th:classappend="${item.available}?'':disabled"
+								th:attr="ng-click=@{|cart.add(${item.id})|}">
+								<i class="fa-solid fa-cart">add to cart</i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>

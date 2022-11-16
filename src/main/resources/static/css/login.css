@@ -1,0 +1,43 @@
+
+		.login1{
+            width: 35%;
+            border: 1px solid silver;
+            box-shadow: 6px 6px gray;
+            text-align: center;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 5px 10px;
+            
+        }
+        h3{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: blue;
+            --padding-bottom: 20px;
+            padding-top: 20px;
+        }
+        .button-login{
+            width: 100%;
+            margin-top: 7px;
+        }
+        .quenmk11{
+            padding-top: 10px;
+            padding-bottom: 30px;
+        }
+        .quenmk11 a{
+            text-decoration: none;
+            color: slategrey;
+        }
+        .quenmk11 a:hover{
+            color: dodgerblue;
+        }
+        .dangky{
+            padding-bottom: 8px;
+        }
+        .dangky a{
+            text-decoration: none;
+            color: dodgerblue;
+        }
+        .dangky a:hover{
+            color: tomato;
+        }
