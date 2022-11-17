@@ -43,7 +43,7 @@ public class RestController_Summary {
 		map.put("totalProduct", productService.getTotalProduct());
 		map.put("todayIncome", orderDetailService.getTodayIncome());
 		map.put("totalIncome", orderDetailService.getTotalIncome());
-		map.put("totalCustomer", authService.getTotalCustomer());
+	map.put("totalCustomer", authService.getTotalCustomer());
 		map.put("totalAccount", accountService.getTotalAccount());
 		return map;
 	}
@@ -66,9 +66,9 @@ public class RestController_Summary {
 
 	@GetMapping("fourthRow")
 	public Map<String,List<Object[]>> fourthRow(){
-		Map<String,List<Object[]>> map = new HashMap<>();
+	Map<String,List<Object[]>> map = new HashMap<>();
 		map.put("top10SoldProduct", productService.top10Product());
-		return map;
+	return map;
 	}
 	
 	@GetMapping("fifthRow")

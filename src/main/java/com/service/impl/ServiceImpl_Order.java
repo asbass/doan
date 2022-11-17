@@ -30,7 +30,7 @@ public class ServiceImpl_Order implements Service_Order{
 		
 		TypeReference<List<OrderDetail>> type = new TypeReference<List<OrderDetail>>() {};
 		List<OrderDetail> details = mapper.convertValue(orderData.get("orderDetails"), type)
-				.stream().peek(d->d.setOrder(order)).collect(Collectors.toList());
+				.stream().peek(d->d.setCart(order)).collect(Collectors.toList());
 		ddao.saveAll(details);
 		
 		return order;

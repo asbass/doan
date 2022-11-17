@@ -1,0 +1,74 @@
+<html xmlns:th="http://wwww.thymeleaf.org" th:replace="~{/layout/index::dynamic(~{::main})}">
+<main>
+    	     
+    	     <form action="/register" method="post" enctype="multipart/form-data" modelAttribute="item">
+    	    
+	        <div class="dangky1">
+	            <h3>ĐĂNG KÝ</h3>
+	            <hr>
+	            
+	            <div class="row">
+	
+	                <div class="col-sm-6">
+	                	<div class="image_dk">
+	                        <label for="image"> <img src="/assets/avatar/{{form.photo}}"  style=" max-width:165px" height="150px" /> </label>
+	                    </div>    
+	                        <input required type="file" id="image" name="images" onchange="angular.element(this).scope().imageChanged(this.files)" class="form-control-file border" >
+	                        
+	                         <div class="checktrue">
+		                        <label class="form-check-label">
+		                        <input type="radio" id="status" name="status" ng-model="form.status" value="true">
+		                        Tôi đồng ý với các điều khoản  
+	                        	</label>
+	                    	</div>
+	                </div>
+	
+	                <div class="col-sm-6">
+	                    <div class="form-group">
+	                                            
+	                        <!-- <label for="usr">TÃªn tÃ i khoáº£n:</label> -->
+	                        <input type="text" class="form-control" name="username" ng-model="form.username" id="usr" placeholder="Tên tài khoản ">
+	                    </div>
+	
+	                    <div class="form-group">
+	                        <!-- <label for="pwd">Máº­t kháº©u:</label> -->
+	                        <input type="password" class="form-control" name="password" ng-model="form.password" id="pwd" placeholder="Mật khẩu">
+	                    </div>
+	                    <div class="form-group">
+	                        <!-- <label for="pwd">Máº­t kháº©u:</label> -->
+	                        <input type="text" class="form-control" ng-model="form.fullname"  placeholder="Họ và tên">
+	                    </div>
+	                    <div class="form-group">
+	                        <!-- <label for="pwd">Máº­t kháº©u:</label> -->
+	                        <input type="email" class="form-control" ng-model="form.email" placeholder="Email">
+	                    </div>
+	                    
+	                     <div class="form-group">
+	                        
+	                        <input type="date" class="form-control"  ng-model="form.datebirth" placeholder="Ngày sinh">
+	                    </div> 
+	                    <div class="form-check-inline">
+	                        <label class="form-check-label">
+	                        <input type="radio" class="form-check-input" ng-model="form.sex" value="true" >Nam
+	                        </label>
+	                    </div>
+	                    <div class="form-check-inline">
+	                        <label class="form-check-label">
+	                        <input type="radio" class="form-check-input" ng-model="form.sex" value="false">Nữ
+	                        </label>
+	                    </div>
+	                   
+	                </div>
+	                   
+	            </div> 
+				<center><b class="text-danger" th:text="${message}"><i> [[${param.message}]]</i></b></center>
+				 <p>[[${param.message}]]</p>
+	            <button class="btn btn-primary button-register" ng-click="create()" type="submit">Đăng ký</button> 
+	                
+	            <div class="dangnhap">Bạn đã có tài khoản  <a th:href="@{|/security/login/form|}">Đăng nhập</a> </div>
+    		</div>
+    		</form> 
+    	
+	</main>
+
+</html>

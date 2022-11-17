@@ -29,7 +29,7 @@ public class cart  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
-	String address;
+	String Address;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
 	Date createDate = new Date();
@@ -39,6 +39,6 @@ public class cart  implements Serializable{
 	Account account;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "cart")
 	List<OrderDetail> orderDetails;
 }

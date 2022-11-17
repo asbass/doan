@@ -25,6 +25,6 @@ public class form  implements Serializable {
 	String phone;
 	@ManyToOne
 	@JoinColumn(name = "productId")
-	Products productforms;
+	Product productforms;
 	
 }

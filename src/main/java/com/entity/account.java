@@ -22,25 +22,25 @@ import lombok.Data;
 @Entity 
 @Table(name = "accounts")
 public class Account  implements Serializable{
-	@Id
-	String username;
-	String password;
-	String fullname;
-	String email;
-	String photo;
-	Boolean sex;
-	@Temporal(TemporalType.DATE)
-	@Column(name = "createdate")//nếu tên 2 chữ thì phải viết thường mới map được vs bên CSDL
-	Date createDate = new Date();
-	Boolean status;
-	@Temporal(TemporalType.DATE)
-	@Column(name = "datebirth")//nếu tên 2 chữ thì phải viết thường mới map được vs bên CSDL
-	Date datebirth = new Date();
-	@JsonIgnore
-	@OneToMany(mappedBy = "account")
-	List<cart> cart;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
-	List<Authority> authorities;
+    @Id
+    String username;
+    String password;
+    String fullname;
+    String email;
+    String photo;
+    Boolean sex;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "datecreate")
+    Date datecreate = new Date();
+    Boolean status;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "datebirth")
+    Date datebirth;
+    @JsonIgnore
+    @OneToMany(mappedBy = "account")
+    List<cart> cart;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
+    List<Authority> authorities;
 }

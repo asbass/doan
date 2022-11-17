@@ -17,6 +17,7 @@ public interface Service_Account {
 	List<Account> findAll();
 
 	Account create(Account account);
+    void delete(String id);
 
 	Account update(Account account);
 

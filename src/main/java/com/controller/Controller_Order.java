@@ -29,10 +29,9 @@ public class Controller_Order {
 		model.addAttribute("orders", orderService.findByUsername(username));
 		return "order/list";
 	}
-	
 	@GetMapping("detail/{id}")
 	public String detail(@PathVariable("id")Long id,Model model) {
-		model.addAttribute("order", orderService.findById(id));
+		model.addAttribute("cart", orderService.findById(id));
 		return "order/detail";
 	}
 	

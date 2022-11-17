@@ -18,7 +18,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.entity.Account;
 import com.service.Service_Account;
 
-@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -64,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		http.exceptionHandling()
 			.accessDeniedPage("/security/unauthorized");
-		
+	
 		http.logout()
 			.logoutUrl("/security/logoff")
 			.logoutSuccessUrl("/security/logoff/success");

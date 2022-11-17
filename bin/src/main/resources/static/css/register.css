@@ -1,0 +1,42 @@
+.dangky1{
+            width: 50%;
+            border: 1px solid silver;
+            box-shadow: 6px 6px gray;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 0px 40px;
+            
+        }
+        h3{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: blue;
+            padding-top: 20px;
+            text-align: center;
+        }
+        .button-register{
+            margin-top: 12px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .dangnhap{
+            padding-top: 15px;
+            padding-bottom: 8px;
+            text-align: center;
+        }
+        .dangnhap a{
+            text-decoration: none;
+            color: blue;
+            
+        }
+        .dangnhap a:hover{
+            color: tomato;
+        }
+        .image_dk{
+     		text-align: center;
+        	height: 218px;
+        }
+        .checktrue{
+        	margin-top: 15px;
+        }
