@@ -5,11 +5,9 @@
 	<div class="wrapper">
 		<div class="container_fullwidth">
 			<div class="container shopping-cart">
-				<div class="row">
+				<div class="row my-5">
 					<div class="col-md-12">
-						<h3 class="title">Shopping Cart</h3>
-						<div class="clearfix"></div>
-						<table class="table table-striped">
+						<table class="shop-table">
 							<thead>
 								<tr>
 									<th>Hình</th>
@@ -42,35 +40,31 @@
 										${{item.qty*item.price | number:2}}</td>
 									<td>
 										<button ng-click="cart.remove(item.id)" class="btn btn-danger">
-											<i class="fa-solid fa-trash"></i> Clear
+											<i class="fas fa-trash"></i> xoá
 										</button>
 									</td>
 								</tr>
 							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="6"><a th:href="@{/product/list}">Continue
-											Shopping </a>
-
-										<button class=" pull-right">Update Shopping Cart</button>
-										<button ng-click="cart.clear()" class="btn btn-danger">
-											<i class="fas fa-trash"></i> Clear All
-										</button></td>
-								</tr>
-							</tfoot>
 						</table>
-						<div class="clearfix"></div>
-						<div class="row">
-
-
-							<div class="col-md-4 col-sm-6">
+						<div class="clearfix">
+							<button ng-click="cart.clear()" class="btn btn-danger">
+								<i class="fas fa-trash"></i> xoá tất cả
+							</button>
+						</div>
+						<div class="row w-100">
+							<div class="col-md-4">
 								<div class="shippingbox">
-									<div class="grandtotal">
+									<div class="grandtotal d-flex align-items-center">
 										<h5>Tổng tiền</h5>
 										<span>${{cart.amount}}</span>
 									</div>
-									<a th:href="@{|order/checkout|}">Process To Checkout</a>
 								</div>
+							</div>
+							<div class="col-md-4 d-flex align-items-center justify-content-center">
+								<a th:href="@{/product/list}"><h4>Tiếp tục mua hàng</h4></a>
+							</div>
+							<div class="col-md-4 d-flex align-items-center justify-content-center">
+								<a th:href="@{|order/checkout|}"><h4>Thanh toán sản phẩm</h4></a>
 							</div>
 						</div>
 					</div>

@@ -39,7 +39,7 @@ public class Products  implements Serializable{
 	Category category;
     String description;
 	@JsonIgnore
-	@OneToMany(mappedBy = "products")
+	@OneToMany(mappedBy = "product")
 	List<OrderDetail> orderDetails;	
 	@JsonIgnore
 	@OneToMany(mappedBy = "productforms")

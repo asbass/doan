@@ -8,6 +8,7 @@
 .shop-table {
   position: relative;
   width: 100%;
+  border-collapse: collapse;
 }
 .shop-table th {
   font-size: 16px;
@@ -16,7 +17,7 @@
 }
 .shop-table tbody td {
   text-align: center;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #e2e2e2;
   vertical-align: middle;
   padding: 10px;
   border-left: none;
@@ -33,7 +34,6 @@
 .shop-table tr {
   width: 100%;
   display: table;
-  margin-bottom: 15px;
 }
 .shop-table th:first-child,
 .shop-table td:first-child {
@@ -97,9 +97,6 @@
   float: left;
   width: 100%;
 }
-.shippingbox h5 {
-  margin-bottom: 20px;
-}
 .shippingbox label {
   position: relative;
   margin-bottom: 8px;
@@ -130,9 +127,7 @@
   font-size: 20px;
 }
 .grandtotal h5 {
-  float: left;
   width: 45%;
-  text-align: right;
   font-weight: 400;
   font-size: 20px;
 }

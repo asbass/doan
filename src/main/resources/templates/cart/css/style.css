@@ -2046,9 +2046,6 @@ option {
   float: left;
   width: 100%;
 }
-.shippingbox h5 {
-  margin-bottom: 20px;
-}
 .shippingbox label {
   position: relative;
   margin-bottom: 8px;
@@ -2079,9 +2076,7 @@ option {
   font-size: 20px;
 }
 .grandtotal h5 {
-  float: left;
   width: 45%;
-  text-align: right;
   font-weight: 400;
   font-size: 20px;
 }
