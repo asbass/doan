@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.entity.Product;
 import com.service.Service_Product;
@@ -29,5 +30,9 @@ public class Controller_Home {
 	@GetMapping({"admin","admin/home/index"})
 	public String admin() {
 		return "redirect:/assets/admin/index.html";
+	}
+	@PostMapping({"user","user/home/index"})
+	public String user(){
+		return "user";
 	}
 }
