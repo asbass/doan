@@ -871,7 +871,7 @@ ul.right_icon li {
 /** end newslatter section **/
 
 .three_box {
-    padding: 50px 0px;
+    margin-top: 50px;
 }
 
 .gift_box {
@@ -906,6 +906,7 @@ ul.right_icon li {
     background: #183661;
     padding: 100px 0px 100px 0px;
     text-align: center;
+    margin-top: 100px;
 }
 
 .footer h3 {

@@ -27,6 +27,16 @@ public class Controller_Home {
 		return "layout/trangchu";
 	}
 	
+    @GetMapping( "home/about")
+    public String about(){
+        return "layout/about";
+    }
+
+    @GetMapping("home/galary")
+    public String galary(){
+        return "layout/galary";
+    }
+	
 	@GetMapping({"admin","admin/home/index"})
 	public String admin() {
 		return "redirect:/assets/admin/index.html";
