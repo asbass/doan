@@ -1161,6 +1161,16 @@ ul.right_icon li {
     gap: 10px;
 }
 
+@media(max-width:725px){
+    .gallary-item{
+        flex-direction: column;
+    }
+
+    .gallary-item .item{
+        width: 100% !important;
+    }
+}
+
 .gallary-item img {
     width: 100%;
     height: 100%;
@@ -1217,6 +1227,12 @@ ul.right_icon li {
     height: 350px !important;
     position: absolute;
     color: yellow;
+}
+
+@media(max-width: 725px){
+    .carousel-product .card{
+        width: 100%;
+    }
 }
 
 .carousel-product .card a{
