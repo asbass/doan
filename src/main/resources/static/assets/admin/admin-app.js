@@ -1,5 +1,6 @@
 app = angular.module("admin-app",["ngRoute"]);
 
+
 app.config(function($routeProvider) {
     $routeProvider
     .when("/product",{

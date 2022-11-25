@@ -17,6 +17,7 @@ public class Controller_Home {
     @Autowired private Service_Product daoPD;
     
     @Autowired private SessionService session;
+    
 	@GetMapping({"","home/index"})
 	public String home(Model model) {
 	    List<Product> list = daoPD.findAll();

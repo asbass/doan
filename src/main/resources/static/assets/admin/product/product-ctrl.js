@@ -3,6 +3,10 @@ app.controller("product-ctrl",function($scope,$http){
     $scope.form = {};
     $scope.cates = [];
 
+	$scope.active = () => {
+		document.getElementById
+	}
+
     $scope.initialize = function(){
         //load products
         $http.get("/rest/products").then(resp=>{
