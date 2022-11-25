@@ -4,11 +4,11 @@
 	</div>
 	<div class="card-body">
 		<div class="input-group flex-nowrap d-flex align-items-center mb-2">
-			<label>Tìm kiếm &nbsp</label>
+			<span class="input-group-text" id="basic-addon1">Tìm kiếm</span>
 			<input type="text" class="form-control border-dark" placeholder="Vui lòng nhập tên doanh mục" aria-label="danh mục" aria-describedby="addon-wrapping" ng-model="searchText">
 		</div>
 		<table class="table table-bordered">
-			<thead class="bg-success text-white" style="font-variant: small-caps;">
+			<thead>
 				<tr>
 					<th>ID</th>
 					<th>NAME</th>
@@ -20,9 +20,9 @@
 					<td>{{item.id}}</td>
 					<td>{{item.name}}</td>
 					<td class="text-center">
-						<button ng-click="edit(item)" class="btn btn-warning"><i
+						<button ng-click="edit(item)" class="btn btn-outline-success rounded-circle btn-cus"><i
 								class="fa-solid fa-square-pen"></i></button>
-						<button ng-click="delete(item)" c class="btn btn-danger"><i
+						<button ng-click="delete(item)"class="btn btn-outline-danger rounded-circle btn-cus"><i
 								class="fa-solid fa-trash-can"></i></button>
 					</td>
 				</tr>
@@ -30,12 +30,21 @@
 		</table>
 	</div>
 	<div class="card-footer text-center">
-		<button ng-click="pager.first()" class="btn btn-danger" style="width: 42px;"><i
-				class="fa-solid fa-backward-step"></i></button>
-		<button ng-click="pager.previous()" class="btn btn-primary"><i class="fa-solid fa-backward"></i></button>
-		<button class="btn btn-success">{{pager.page+1}} of {{pager.count}}</button>
-		<button ng-click="pager.next()" class="btn btn-primary"><i class="fa-solid fa-forward"></i></button>
-		<button ng-click="pager.last()" class="btn btn-danger" style="width: 42px;"><i
-				class="fa-solid fa-forward-step"></i></button>
+		<!-- <button ng-click="pager.first()" class="btn btn-sm"
+			style="width: 42px;">
+			<i class="fa-solid fa-backward-step"></i>
+		</button> -->
+		<button ng-click="pager.previous()" class="btn btn-sm">
+			<i class="fas fa-chevron-left"></i>
+		</button>
+		<button class="btn btn-sm">{{pager.page+1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-sm">
+			<i class="fas fa-chevron-right"></i>
+		<!-- </button>
+		<button ng-click="pager.last()" class="btn btn-sm"
+			style="width: 42px;">
+			<i class="fa-solid fa-forward-step"></i>
+		</button> -->
 	</div>
 </div>

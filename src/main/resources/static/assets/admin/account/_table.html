@@ -4,8 +4,7 @@
 	</div>
 	<div class="card-body">
 		<table class="table table-bordered">
-			<thead class="bg-success text-white"
-				style="font-variant: small-caps;">
+			<thead>
 				<tr>
 					<th>User-name</th>
 					<th>Full-Name</th>
@@ -30,31 +29,31 @@
 					<td>{{item.status?'hoạt động' :'không hoạt động'}}</td>
         			<td>{{item.datebirth}}</td>
 					<td class="text-center">
-						<button ng-click="edit(item)" class="btn btn-warning">
-							<i class="fa-solid fa-square-pen"></i>
-						</button>  
-						<button ng-click="delete(item)" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+						<button ng-click="edit(item)" class="btn btn-outline-success rounded-circle btn-cus"><i
+								class="fa-solid fa-square-pen"></i></button>
+						<button ng-click="delete(item)"class="btn btn-outline-danger rounded-circle btn-cus"><i
+								class="fa-solid fa-trash-can"></i></button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="card-footer text-center">
-		<button ng-click="pager.first()" class="btn btn-danger"
+		<!-- <button ng-click="pager.first()" class="btn btn-sm"
 			style="width: 42px;">
 			<i class="fa-solid fa-backward-step"></i>
+		</button> -->
+		<button ng-click="pager.previous()" class="btn btn-sm">
+			<i class="fas fa-chevron-left"></i>
 		</button>
-		<button ng-click="pager.previous()" class="btn btn-primary">
-			<i class="fa-solid fa-backward"></i>
-		</button>
-		<button class="btn btn-success">{{pager.page+1}} of
+		<button class="btn btn-sm">{{pager.page+1}} of
 			{{pager.count}}</button>
-		<button ng-click="pager.next()" class="btn btn-primary">
-			<i class="fa-solid fa-forward"></i>
-		</button>
-		<button ng-click="pager.last()" class="btn btn-danger"
+		<button ng-click="pager.next()" class="btn btn-sm">
+			<i class="fas fa-chevron-right"></i>
+		<!-- </button>
+		<button ng-click="pager.last()" class="btn btn-sm"
 			style="width: 42px;">
 			<i class="fa-solid fa-forward-step"></i>
-		</button>
+		</button> -->
 	</div>
 </div>
