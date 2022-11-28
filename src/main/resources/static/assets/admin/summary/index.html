@@ -59,32 +59,32 @@
 		<div class="col-md-3 ">
 			<div class="card bg-green rounded-0 mb-1">
 				<h2 class="fw-bold ps-2 mt-1 mb-0">{{firstRow.todayOrder}}</h2>
-				<div class="ps-2 mt-1">NEW ORDERS</div>
-				<h4 class="ps-2 mt-1">Total: {{firstRow.totalOrder}}</h4>
+				<div class="ps-2 mt-1">ĐƠN HÀNG</div>
+				<h4 class="ps-2 mt-1">Tổng: {{firstRow.totalOrder}}</h4>
 				<i class="fas fa-shopping-cart"></i>
 			</div>
 		</div>
 		<div class="col-md-3 ">
 			<div class="card bg-aqua rounded-0 mb-1">
 				<h2 class="fw-bold ps-2 mt-1 mb-0">{{firstRow.available}}</h2>
-				<div class="ps-2 mt-1">AVAILABLE</div>
-				<h4 class="ps-2 mt-1">Total: {{firstRow.totalProduct}}</h4>
+				<div class="ps-2 mt-1">MẶT HÀNG HIỆN CÓ</div>
+				<h4 class="ps-2 mt-1">Tổng: {{firstRow.totalProduct}}</h4>
 				<i class="fas fa-eye"></i>
 			</div>
 		</div>
 		<div class="col-md-3 ">
 			<div class="card bg-yellow1 rounded-0 mb-1">
 				<h2 class="fw-bold ps-2 mt-1 mb-0">{{firstRow.todayIncome | number:0}}</h2>
-				<div class="ps-2 mt-1">INCOME</div>
-				<h4 class="ps-2 mt-1">Total: {{firstRow.totalIncome | number:0}}</h4>
+				<div class="ps-2 mt-1">THU NHẬP</div>
+				<h4 class="ps-2 mt-1">Tổng: {{firstRow.totalIncome | number:0}}</h4>
 				<i class="fas fa-money-bill"></i>
 			</div>
 		</div>
 		<div class="col-md-3 ">
 			<div class="card bg-red rounded-0">
 				<h2 class="fw-bold ps-2 mt-1 mb-0">{{firstRow.totalCustomer}}</h2>
-				<div class="ps-2 mt-1">TOTAL CUSTOMER</div>
-				<h4 class="ps-2 mt-1">Total Acc: {{firstRow.totalAccount}}</h4>
+				<div class="ps-2 mt-1">TỔNG SỐ KHÁCH HÀNG</div>
+				<h4 class="ps-2 mt-1">Tổng Acc: {{firstRow.totalAccount}}</h4>
 				<i class="fas fa-users"></i>
 			</div>
 		</div>
@@ -96,9 +96,9 @@
 			<div class="card border-0 mb-2">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Revenue $
+						Doanh thu $
 					</h5>
-					<small class="d-block">Last 7 days</small>
+					<small class="d-block">7 ngày trước</small>
 				</div>
 				<div class="card-body">
 					<canvas id="myLineChartRevenue"></canvas>
@@ -109,9 +109,9 @@
 			<div class="card border-0 mb-2">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Number of Products Sold By Categories
+						Số lượng sản phẩm đã bán theo danh mục
 					</h5>
-					<small class="d-block">Last 365 days</small>
+					<small class="d-block">1 năm trước</small>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChartSoldByType"></canvas>
@@ -125,9 +125,9 @@
 			<div class="card border-0 mb-2 h-100">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Number of Products Sold By Categories
+						Số lượng sản phẩm đã bán theo danh mục
 					</h5>
-					<small class="d-block">In total</small>
+					<small class="d-block">Tổng</small>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChartProductByCateAvailable"></canvas>
@@ -138,9 +138,9 @@
 			<div class="card border-0 mb-2 h-100">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Available/Unavailable Products By Category Name
+						Sản phẩm có sẵn/không có sẵn theo tên danh mục
 					</h5>
-					<small class="d-block">In total</small>
+					<small class="d-block">Tổng</small>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChartAvailableRate"></canvas>
@@ -154,9 +154,9 @@
 			<div class="card border-0 mb-2">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Top 10 Sold Products
+						10 sản phẩm bán chạy nhất
 					</h5>
-					<small class="d-block">In total</small>
+					<small class="d-block">Tổng</small>
 				</div>
 				<div class="card-body">
 					<canvas id="myBarChartTop10Product"></canvas>
@@ -170,9 +170,9 @@
 			<div class="card border-0 mb-2">
 				<div class="card-header bg-white2 border-0">
 					<h5 class="card-title text-white badge bg-primary fs-6 mb-0">
-						Top Customer
+						Bảng xếp hạng khách hàng
 					</h5>
-					<small class="d-block">In total</small>
+					<small class="d-block">Tổng</small>
 				</div>
 				<div class="card-body">
 					<table class="table table-bordered" id="tableTopCustomer">

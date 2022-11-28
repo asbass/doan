@@ -1223,7 +1223,7 @@ ul.right_icon li {
 .carousel-product .card {
     transition: 1s;
     width: 16.67%;
-    height: 350px !important;
+    height: 400px !important;
     position: absolute;
     color: yellow;
 }
