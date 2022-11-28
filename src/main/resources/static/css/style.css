@@ -40,10 +40,9 @@ html {
 }
 
 body {
-    color: #666666;
     font-family: 'Poppins', sans-serif;
     line-height: 1.80857;
-    font-weight: normal;
+    font-weight: normal !important;
 }
 
 a {
@@ -710,7 +709,7 @@ ul.right_icon li {
     background-color: #fff;
 }
 
-.project_box a:hover{
+.project_box>a:hover{
 	color: black !important;
 }
 
