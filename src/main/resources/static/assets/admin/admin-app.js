@@ -1,6 +1,5 @@
 app = angular.module("admin-app",["ngRoute"]);
 
-
 app.config(function($routeProvider) {
     $routeProvider
     .when("/product",{
@@ -22,6 +21,10 @@ app.config(function($routeProvider) {
     .when("/authorize",{
         templateUrl:"/assets/admin/authority/index.html",
         controller: "authority-ctrl"
+    })
+        .when("/cart",{
+        templateUrl:"/assets/admin/cart/index.html",
+        controller: "shopping-cart-ctrl"
     })
     .when("/unauthorized",{
         templateUrl:"/assets/admin/authority/unauthorized.html",

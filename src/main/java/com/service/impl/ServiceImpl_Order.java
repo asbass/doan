@@ -58,5 +58,15 @@ public class ServiceImpl_Order implements Service_Order{
 	public List<Object[]> getRevenueLast7Days() {
 		return dao.getRevenueLast7Days();
 	}
+
+	@Override
+	public cart update(cart cart) {
+        return dao.save(cart);
+    }
+	
+	@Override
+	public List<cart> findAll() {
+        return dao.findAll();
+    }
 	
 }

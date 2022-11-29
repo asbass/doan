@@ -20,5 +20,9 @@ public interface Service_Order {
 
 	Long totalOrder();
 
+	List<cart> findAll();
+	
+	cart update(cart cart);
+
 	List<Object[]> getRevenueLast7Days();
 }

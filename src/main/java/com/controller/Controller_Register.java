@@ -20,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dao.DAO_Account;
 import com.entity.Account;
 import com.entity.Authority;
+import com.entity.Role;
 import com.service.Service_Account;
 import com.service.Service_Authority;
 
@@ -27,49 +28,55 @@ import com.service.Service_Authority;
 
 @Controller
 public class Controller_Register {
-	
-	@Autowired
-	Service_Account ad;
-	@Autowired
-	Service_Authority au;
-	@Autowired
+    
+    @Autowired
+    Service_Account ad;
+    @Autowired
+    Service_Authority ss;
+    @Autowired
     ServletContext app;
-	
-	@SuppressWarnings("unused")
+    
+    @SuppressWarnings("unused")
     @RequestMapping("/register")
-	public String registrator() {
-		return "security/register";
-	}
-	
-	@PostMapping("/register")
-	public String registrator2(Account item,Model model,@RequestParam("images") MultipartFile image, Authority auth) {
+    public String registrator() {
+        boolean status = true;
+        return "security/register";
+    }
+    @PostMapping("/register")
+  public String registrator2(Account item,Role s,Authority as,Model model,@RequestParam("images") MultipartFile image) {
         /*
          * a.setPhoto("user.png");
          * ad.save(a);
          * ra.addAttribute("message", "Thanh Cong");
          */
-	    if(image.isEmpty()){
+      if(image.isEmpty()){
             model.addAttribute("message", "Vui lòng chọn file !");
         }
         else{
             try {
                 String filename = image.getOriginalFilename();
-//                String path = app.getRealPath("/images/"+filename);
-                File file = new File(app.getRealPath("/images/"+filename));
+                //String path = app.getRealPath("/images/"+filename);
+                File file = new File(app.getRealPath("/assets/avatar/"+filename));
                 image.transferTo(file);
+                item.setPhoto(filename);
+                item.setDatecreate(new Date());
+                item.setStatus(true);
+                as.setAccount(item);
+                s.setId("CUST");
+                s.setName("Customer");
+                as.setRole(s);
                 ad.create(item);
-               
-                au.create(auth);
+                ss.create(as);
+                System.out.println(item);
+                System.out.println(model);
                 model.addAttribute("message","Đăng ký thành công");
-                return "redirect:/register";
             } 
             catch (Exception e) {
-                
-                model.addAttribute("message", "Đăng ký không thành công! Vui lòng kiểm tra lại thông tin");
+                model.addAttribute("message", "Lỗi lưu file !");
                 
             }
         }
-		return "redirect:/register";
-	}
-	
+      return "security/register";
+  }
+    
 }
