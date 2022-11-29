@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.dao.DAO_Order;
 import com.dao.DAO_OrderDetail;
 import com.entity.cart;
+import com.entity.Account;
 import com.entity.OrderDetail;
 import com.service.Service_Order;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -21,6 +22,11 @@ public class ServiceImpl_Order implements Service_Order{
 
 	@Autowired private DAO_Order dao;
 	@Autowired private DAO_OrderDetail ddao;
+	@Override
+    public List<cart> findAll() {
+        return dao.findAll();
+    }
+
 	@Override
 	public cart create(JsonNode orderData) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -35,6 +41,9 @@ public class ServiceImpl_Order implements Service_Order{
 		
 		return order;
 	}
+	   public cart update(cart cart) {
+	        return dao.save(cart);
+	    }
 	@Override
 	public cart findById(Long id) {
 		return dao.findById(id).get();
@@ -58,15 +67,5 @@ public class ServiceImpl_Order implements Service_Order{
 	public List<Object[]> getRevenueLast7Days() {
 		return dao.getRevenueLast7Days();
 	}
-
-	@Override
-	public cart update(cart cart) {
-        return dao.save(cart);
-    }
-	
-	@Override
-	public List<cart> findAll() {
-        return dao.findAll();
-    }
 	
 }

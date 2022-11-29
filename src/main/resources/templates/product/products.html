@@ -56,8 +56,8 @@
 					<div class="project_box" th:each="item:${items}">
 						<a th:href="@{|/product/detail/${item.id}|}">
 							<div class="photo-main">
-								<img class="img-fluid" src="../images/sp.png"
-									alt="#" />
+								<img th:src="@{|/assets/images/${item.image}|}" class="img-fluid"
+									name="image" id="image"  />
 							</div>
 							<h2 th:utext="${item.getName()}"></h2>
 							<span th:utext="${item.getPrice()}"></span>

@@ -15,11 +15,12 @@ import com.service.Service_Product;
 public class ServiceImpl_Product implements Service_Product{
 	@Autowired private DAO_Product pDao;
 
-	@Override
-	public List<Product> findAll() {
-		return pDao.findAll();
-	}
+	   @Override
+	    public List<Product> findAll() {
+	        return pDao.findAll();
+	    }
 
+  
 	@Override
 	public Product findById(Integer productID) {
 		return pDao.findById(productID).get();

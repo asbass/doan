@@ -86,7 +86,7 @@
 	                        <div class="carousel-product">
 	                            <div class="card text-left" th:each="item:${items}">
 		                            <a th:href="@{|/product/detail/${item.id}|}">
-		                                <img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="">
+		                                <img class="card-img-top" th:src="@{|/assets/images/${item.image}|}"  alt="">
 		                                <div class="card-body">
 		                                    <h2 th:utext="${item.getName()}"></h2>
 		                                    <span class="" th:utext="${item.getPrice()}"></span>

@@ -12,7 +12,6 @@ public interface Service_Product{
 	Page<Product> findAll(Pageable pageable);
 	
 	Page<Product> findByCategoryID(String cid,Pageable pageable);
-	
 	List<Product> findAll();
 	
     Page<Product> findAllByNameLike(String keywords, Pageable pageable);

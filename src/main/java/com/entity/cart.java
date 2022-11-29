@@ -33,7 +33,7 @@ public class cart  implements Serializable{
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
 	Date createDate = new Date();
-	Boolean status;
+	String status;
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	Account account;

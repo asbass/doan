@@ -21,7 +21,7 @@
 						<td>{{item.account.username}}</td>
 						<td>{{item.address}}</td>
 						<td>{{item.createDate}}</td>
-						<td>{{item.status}}</td>
+						<td>{{item.status?'Đang giao':'Huỷ'}}</td>
 					<td class="text-center">
 						<button ng-click="edit(item)" class="btn btn-warning">
 							<i class="fa-solid fa-square-pen"></i>
