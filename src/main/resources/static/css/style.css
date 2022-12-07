@@ -1,19 +1,17 @@
 /*--------------------------------------------------------------------- File Name: style.css ---------------------------------------------------------------------*/
 
-
 /*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap&subset=latin-ext');
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,800i&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Righteous&display=swap&subset=latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,800i&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
 
 /*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
  2) font-family: 'Poppins', sans-serif;
  ----------------------------------------*****/
-
 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
 
@@ -40,7 +38,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     line-height: 1.80857;
     font-weight: normal !important;
 }
@@ -49,11 +47,11 @@ a {
     color: #1f1f1f;
     text-decoration: none !important;
     outline: none !important;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 h1,
@@ -65,7 +63,7 @@ h6 {
     font-weight: normal;
     line-height: normal;
     color: #111111;
-    margin: 0
+    margin: 0;
 }
 
 h1 {
@@ -81,15 +79,15 @@ h3 {
 }
 
 h4 {
-    font-size: 16px
+    font-size: 16px;
 }
 
 h5 {
-    font-size: 14px
+    font-size: 14px;
 }
 
 h6 {
-    font-size: 13px
+    font-size: 13px;
 }
 
 *,
@@ -108,7 +106,7 @@ h5 a,
 h6 a {
     color: #212121;
     text-decoration: none !important;
-    opacity: 1
+    opacity: 1;
 }
 
 button:focus {
@@ -140,11 +138,11 @@ a,
 .btn {
     text-decoration: none !important;
     outline: none !important;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 img {
@@ -152,7 +150,7 @@ img {
     height: auto;
 }
 
- :focus {
+:focus {
     outline: 0;
 }
 
@@ -174,7 +172,7 @@ img {
 
 .form-control:focus {
     border-color: #ffffff !important;
-    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 
 .navbar-form input {
@@ -209,9 +207,7 @@ button {
     padding: 0;
 }
 
-
 /**-- heading section --**/
-
 
 /*---------------------------- preloader area ----------------------------*/
 
@@ -238,10 +234,9 @@ button {
     width: 280px;
 }
 
-
 /*-- header area --*/
 
-main{
+main {
     padding-top: 200px;
 }
 
@@ -371,7 +366,7 @@ ul.social_icon li a:hover {
     display: block;
 }
 
-.logo>img {
+.logo > img {
     width: 60px;
 }
 
@@ -421,7 +416,6 @@ ul.right_icon li {
     background-color: #f2c119;
 }
 
-
 /*--   navigation--*/
 
 .header_bottom {
@@ -447,10 +441,10 @@ ul.right_icon li {
     background-color: #f2c119;
 }
 
-.navigation.navbar-dark .navbar-nav .active>.nav-link,
+.navigation.navbar-dark .navbar-nav .active > .nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
-.navigation.navbar-dark .navbar-nav .show>.nav-link {
+.navigation.navbar-dark .navbar-nav .show > .nav-link {
     background-color: #f2c119;
 }
 
@@ -462,8 +456,8 @@ ul.right_icon li {
     text-align: right;
 }
 
-.form_search{
-	margin: 0px !important;
+.form_search {
+    margin: 0px !important;
 }
 
 .form_sea {
@@ -486,9 +480,7 @@ ul.right_icon li {
     color: #b7b7b7;
 }
 
-
 /*-- marker-end sidebar  navigation--*/
-
 
 /** banner section **/
 
@@ -500,7 +492,7 @@ ul.right_icon li {
 }
 
 .blodark {
-    font-family: 'Righteous', cursive;
+    font-family: "Righteous", cursive;
 }
 
 .text-bg {
@@ -559,7 +551,6 @@ ul.right_icon li {
     width: 100%;
 }
 
-
 /** end banner section **/
 
 .titlepage h2 {
@@ -606,7 +597,6 @@ ul.right_icon li {
     transition: ease-in all 0.5s;
 }
 
-
 /** six_box section **/
 
 .six_box {
@@ -615,9 +605,9 @@ ul.right_icon li {
     background-repeat: no-repeat;
 }
 
-.six_box img{
-	width: calc(200%/6);
-	object-fit: cover;
+.six_box img {
+    width: calc(200% / 6);
+    object-fit: cover;
 }
 
 .bluedark_bg {
@@ -652,30 +642,29 @@ ul.right_icon li {
 
 /** end six_box section **/
 
-
 /** project section **/
 
-#project{
-	margin: 0px 0px 100px 0px;
+#project {
+    margin: 0px 0px 100px 0px;
 }
 
 .project {
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-color: #FCFDF2;
+    background-color: #fcfdf2;
     padding: 90px 0 90px 0;
 }
 
-.project .container{
-	display: flex;
-	justify-content: center;
+.project .container {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 30px;
 }
 
-.page-link{
-	color: #183661;
-	font-size: 1rem;
+.page-link {
+    color: #183661;
+    font-size: 1rem;
 }
 
 .project .titlepage {
@@ -689,7 +678,7 @@ ul.right_icon li {
 }
 
 .product_category {
-	display: flex;
+    display: flex;
 }
 
 .product_main {
@@ -709,8 +698,8 @@ ul.right_icon li {
     background-color: #fff;
 }
 
-.project_box>a:hover{
-	color: black !important;
+.project_box > a:hover {
+    color: black !important;
 }
 
 .dark_white_bg {
@@ -729,7 +718,7 @@ ul.right_icon li {
     text-align: left;
 }
 
-.project .project_box span{
+.project .project_box span {
     font-size: 14px;
 }
 
@@ -743,9 +732,7 @@ ul.right_icon li {
     padding: 10px 0;
 }
 
-
 /** end project section **/
-
 
 /** fashion section **/
 
@@ -753,9 +740,7 @@ ul.right_icon li {
     width: 100%;
 }
 
-
 /** end fashion section **/
-
 
 /** news section **/
 
@@ -818,9 +803,7 @@ ul.right_icon li {
     padding-top: 15px;
 }
 
-
 /** end news section **/
-
 
 /** newslatter section **/
 
@@ -865,7 +848,6 @@ ul.right_icon li {
     background-color: #f2c119;
 }
 
-
 /** end newslatter section **/
 
 .three_box {
@@ -891,12 +873,9 @@ ul.right_icon li {
     display: block;
 }
 
-
 /** three_box section **/
 
-
 /** end three_box section **/
-
 
 /** footer **/
 
@@ -942,9 +921,7 @@ ul.right_icon li {
     gap: 10px;
 }
 
-
 /** end footer **/
-
 
 /** inner page css **/
 
@@ -960,7 +937,6 @@ ul.right_icon li {
 .blue_bg .titlepage {
     text-align: center;
 }
-
 
 /** about page **/
 
@@ -999,7 +975,6 @@ ul.right_icon li {
     background: #f2c119;
 }
 
-
 /** about page **/
 
 .project_page .blue_bg .titlepage h2 {
@@ -1021,7 +996,6 @@ ul.right_icon li {
 .fashion_page .fashion {
     margin: 90px 0;
 }
-
 
 /** contact page **/
 
@@ -1097,9 +1071,7 @@ ul.right_icon li {
     opacity: 1;
 }
 
-
 /** end contact section **/
-
 
 /** banner 2**/
 
@@ -1123,7 +1095,7 @@ ul.right_icon li {
 .text_banner p {
     font-size: 1.8rem;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 900;
 }
 
@@ -1149,7 +1121,6 @@ ul.right_icon li {
     background-color: #ffc107;
 }
 
-
 /** galary **/
 
 .gallary-item {
@@ -1159,12 +1130,12 @@ ul.right_icon li {
     gap: 10px;
 }
 
-@media(max-width:725px){
-    .gallary-item{
+@media (max-width: 725px) {
+    .gallary-item {
         flex-direction: column;
     }
 
-    .gallary-item .item{
+    .gallary-item .item {
         width: 100% !important;
     }
 }
@@ -1180,9 +1151,7 @@ ul.right_icon li {
     height: 300px;
 }
 
-
 /** Carousel **/
-
 
 .carousel {
     width: 100%;
@@ -1199,7 +1168,7 @@ ul.right_icon li {
 .carousel-title p {
     font-size: 1.4rem;
     color: #ffffff;
-    font-family:  'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .carousel-title a {
@@ -1227,27 +1196,27 @@ ul.right_icon li {
     color: yellow;
 }
 
-@media(max-width: 725px){
-    .carousel-product .card{
+@media (max-width: 725px) {
+    .carousel-product .card {
         width: 100%;
     }
 }
 
-.carousel-product .card a{
-	height: 100%;
+.carousel-product .card a {
+    height: 100%;
     display: flex;
     flex-direction: column;
-  	justify-content: space-between;
-  	position: relative;
+    justify-content: space-between;
+    position: relative;
 }
 
-.carousel-product .card a:hover{
-	color: black !important;
+.carousel-product .card a:hover {
+    color: black !important;
 }
 
 .carousel-product .card a .card-body {
-	position: absolute;
-	bottom: 7%;
+    position: absolute;
+    bottom: 7%;
 }
 
 .carousel-product .card:nth-child(1) {
@@ -1279,7 +1248,7 @@ ul.right_icon li {
     transform: translate(500%);
 }
 
-.carousel-product .card:nth-child(n+8) {
+.carousel-product .card:nth-child(n + 8) {
     transform: translate(600%);
     opacity: 0;
 }
@@ -1291,32 +1260,31 @@ ul.right_icon li {
 
 .button-carousel {
     width: 30px;
-    font-size: 0.9rem;
+    font-size: 1.8rem;
     position: absolute;
     top: 50%;
     transform: translateY(-50);
     z-index: 1;
     background-color: transparent;
-    border: 1px solid #000;
     border-radius: 100%;
     width: 40px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 5px;
 }
 
 .button-carousel:hover {
-    background-color: #1836616c;
+    background-color: rgba(126, 126, 126, 0.285);
 }
 
 .button-right {
-    right: 0px;
+    right: 2px;
 }
 
 .button-left {
-    left: 0px;
+    left: 2px;
 }
 
 /** trang chi tiet **/
-

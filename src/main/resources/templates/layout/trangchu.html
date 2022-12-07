@@ -82,7 +82,7 @@
                         <a th:href="@{/product/list}">Xem tất cả<i class="fas fa-angle-right"></i></a>
                     </div>
                     <div class="carousel-box">
-                        <button class="button-carousel button-left"><i class="fas fa-arrow-left"></i></button>
+                        <button class="button-carousel button-left"><i class="fas fa-chevron-left"></i></i></button>
 	                        <div class="carousel-product">
 	                            <div class="card text-left" th:each="item:${items}">
 		                            <a th:href="@{|/product/detail/${item.id}|}">
@@ -95,7 +95,7 @@
                                     <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">add cart</button>
 	                            </div>
 	                        </div>
-                        <button class="button-carousel button-right"><i class="fas fa-arrow-right"></i></button>
+                        <button class="button-carousel button-right"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>

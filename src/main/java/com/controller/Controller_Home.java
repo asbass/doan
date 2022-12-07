@@ -27,11 +27,6 @@ public class Controller_Home {
 
 		return "layout/trangchu";
 	}
-	
-    @GetMapping( "home/about")
-    public String about(){
-        return "layout/about";
-    }
 
     @GetMapping("home/galary")
     public String galary(){
