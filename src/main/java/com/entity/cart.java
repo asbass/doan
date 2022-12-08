@@ -34,6 +34,7 @@ public class cart  implements Serializable{
 	@Column(name = "Createdate")
 	Date createDate = new Date();
 	String status;
+	String  phone;
 	@ManyToOne
 	@JoinColumn(name = "Username")
 	Account account;

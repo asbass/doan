@@ -8,7 +8,6 @@
 	            <div class="row">
 	                <div class="col">
 	                    <div class="form-group">
-	                        <!-- <label for="pwd">Máº­t kháº©u:</label> -->
 	                        <input type="email" class="form-control" ng-model="form.email" name="email" placeholder="Email" required>
 	                    </div>
 	                    
@@ -20,7 +19,7 @@
 	            <button class="btn btn-primary button-forget"  type="submit">Lấy lại mật khẩu</button> 
 	                
 	            <div class="dangnhap"><a th:href="@{|/security/login/form|}">Đăng nhập</a> </div>
-    		    <h3 style="color: red; text-align: center;">{{param.message }}</h3>
+    		    <h3 th:text="${message}" style="color: red; text-align: center;" >[[${param.message}]]</h3>    
     			
     		</div>
     		</form>

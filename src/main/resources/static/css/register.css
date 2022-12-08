@@ -1,5 +1,5 @@
-.dangky1{
-            width: 50%;
+		.dangky1{
+            width: 32%;
             border: 1px solid silver;
             box-shadow: 6px 6px gray;
             margin: auto;
@@ -39,4 +39,9 @@
         }
         .checktrue{
         	margin-top: 15px;
+        }
+        .conten{
+        	font-size: 13px;
+		    text-align: left;
+		    font-style: italic;
         }

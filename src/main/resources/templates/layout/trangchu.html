@@ -92,7 +92,7 @@
 		                                    <span class="" th:utext="${item.getPrice()}"></span>
 		                                </div>
 		                            </a>
-                                    <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">add cart</button>
+                                    <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">Mua hàng</button>
 	                            </div>
 	                        </div>
                         <button class="button-carousel button-right"><i class="fas fa-chevron-right"></i></button>

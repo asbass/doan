@@ -23,7 +23,7 @@
 					<td>{{item.name}}</td>
 					<td class="text-end">{{item.price|number:2}}</td>
 					<td>{{item.createDate|date:'dd-MM-yyyy'}}</td>
-					<td>{{item.image}}</td>
+					<td><img height="50px" width="50px" ng-src="/assets/images/{{item.image}}" alt=""></td>
 					<td>{{item.category.name}}</td>
 					<td>{{item.available?'Yes':'No'}}</td>
 					<td>{{item.description}}</td>

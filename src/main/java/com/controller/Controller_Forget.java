@@ -6,6 +6,7 @@ import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,18 +35,18 @@ public class Controller_Forget {
 	}
 	
 	@PostMapping("/forget")
-	public String forget2(RedirectAttributes ra, @RequestParam("email") String e) {
+	public String forget2(Model model, @RequestParam("email") String e) {
 		Optional<Account> account = ad.findByEmail(e);
-		MailInfo mail = new MailInfo(e, "LK.CAR", account.get().getPassword());
+		MailInfo mail = new MailInfo(e, "LK.CAR Cấp lại mật khẩu", account.get().getPassword());
 		try {
 			ms.send(mail);
-			ra.addAttribute("message", "Vui lòng check email để lấy lại mật khẩu");
+			model.addAttribute("message", "Vui lòng check email để lấy lại mật khẩu");
 		} catch (MessagingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			ra.addAttribute("message", "Email này không tồn tại. Vui lòng nhập lại email");
+			model.addAttribute("message", "Email này không tồn tại. Vui lòng nhập lại email");
 		}
-		return "redirect:/forget";
+		return "security/forget";
 	}
 
 }

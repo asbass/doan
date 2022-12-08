@@ -1,95 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://wwww.thymeleaf.org" th:fragment="dynamic(main)">
+    <head>
+        <!-- basic -->
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+        <!-- site metas -->
+        <title>LK.CAR</title>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- bootstrap css -->
+        <link rel="stylesheet" th:href="@{|/css/bootstrap.min.css|}" />
+        <!-- style css -->
+        <link rel="stylesheet" th:href="@{|/css/style.css|}" />
+        <!-- Responsive-->
+        <link rel="stylesheet" th:href="@{|/css/responsive.css|}" />
+        <!-- fevicon -->
+        <link rel="icon" th:href="@{|/images/fevicon.png|}" type="image/gif" />
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" th:href="@{|/css/jquery.mCustomScrollbar.min.css|}" />
+        <link rel="stylesheet" th:href="@{|/cart/css/flexslider.css|}" type="text/css" media="screen" />
+        <link rel="stylesheet" th:href="@{|/cart/css/cart.css|}" type="text/css" media="screen" />
+        <link th:href="@{|cart1/css/style.css|}" rel="stylesheet" type="text/css" />
+        <!-- Tweaks for older IEs-->
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen" />
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script
+        ><![endif]-->
+        <!--Carousel-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=2837156356610957&autoLogAppEvents=1" nonce="TzYAOlxt"></script>
+        <link rel="stylesheet" th:href="@{|/css/register.css|}" />
+        <link rel="stylesheet" th:href="@{|/css/login.css|}" />
+        <link rel="stylesheet" th:href="@{|/css/forget.css|}" />
+        <base href="/" />
+        <style>
+            .btn-outline-danger {
+                color: #dc3545 !important;
+            }
+            .btn-outline-danger:hover {
+                color: #fff !important;
+            }
+        </style>
+        <link rel="icon" type="image/x-icon" href="/images/brakes.png" />
+    </head>
+    <!-- body -->
 
-<head>
-    <!-- basic -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- site metas -->
-    <title>LK.CAR</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- bootstrap css -->
-    <link rel="stylesheet" th:href="@{|/css/bootstrap.min.css|}">
-    <!-- style css -->
-    <link rel="stylesheet" th:href="@{|/css/style.css|}">
-    <!-- Responsive-->
-    <link rel="stylesheet" th:href="@{|/css/responsive.css|}">
-    <!-- fevicon -->
-    <link rel="icon" th:href="@{|/images/fevicon.png|}" type="image/gif" />
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" th:href="@{|/css/jquery.mCustomScrollbar.min.css|}">
-    <link rel="stylesheet" th:href="@{|/cart/css/flexslider.css|}" type="text/css" media="screen" />
-    <link rel="stylesheet" th:href="@{|/cart/css/cart.css|}" type="text/css" media="screen" />
-    <link th:href="@{|cart1/css/style.css|}" rel="stylesheet" type="text/css">
-    <!-- Tweaks for older IEs-->
-    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-        media="screen">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <!--Carousel-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"
-        integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=2837156356610957&autoLogAppEvents=1"
-        nonce="TzYAOlxt"></script>
-    <link rel="stylesheet" th:href="@{|/css/register.css|}">
-    <link rel="stylesheet" th:href="@{|/css/login.css|}">
-    <link rel="stylesheet" th:href="@{|/css/forget.css|}">
-    <base href="/" />
-    <style>
-        .btn-outline-danger{
-            color: #dc3545 !important;
-        }
-        .btn-outline-danger:hover{
-            color: #fff !important;
-        }
-    </style>
-</head>
-<!-- body -->
+    <body class="main-layout" ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+        <!-- loader  -->
+        <div class="loader_bg">
+            <div class="loader"><img src="/images/loading.gif" alt="#" /></div>
+        </div>
+        <!-- end loader -->
+        <!-- header -->
+        <header th:replace="/layout/_header.html"></header>
+        <!-- end header inner -->
+        <!-- end header -->
+        <!-- banner -->
+        <!-- end three_box section -->
 
-<body class="main-layout" ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
-    <!-- loader  -->
-    <div class="loader_bg">
-        <div class="loader"><img src="/images/loading.gif" alt="#" /></div>
-    </div>
-    <!-- end loader -->
-    <!-- header -->
-    <header th:replace="/layout/_header.html">
-
-    </header>
-    <!-- end header inner -->
-    <!-- end header -->
-    <!-- banner -->
-    <!-- end three_box section -->
-
-    <!--  footer -->
-    <div th:replace="${main}"></div>
-    <footer th:replace="/layout/_footer.html">
-    </footer>
-    <!-- end footer -->
-    <!-- Javascript files-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/jquery-3.0.0.min.js"></script>
-    <!-- sidebar -->
-    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="/js/custom.js"></script>
-    <script src="/assets/js/shopping-cart-app.js"></script>
-    <script src="/js/carousel.js"></script>
-</body>
-
+        <!--  footer -->
+        <div th:replace="${main}"></div>
+        <footer th:replace="/layout/_footer.html"></footer>
+        <!-- end footer -->
+        <!-- Javascript files-->
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/jquery-3.0.0.min.js"></script>
+        <!-- sidebar -->
+        <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="/js/custom.js"></script>
+        <script src="/assets/js/shopping-cart-app.js"></script>
+        <script src="/js/carousel.js"></script>
+    </body>
 </html>
