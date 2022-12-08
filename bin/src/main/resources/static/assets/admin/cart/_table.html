@@ -1,0 +1,55 @@
+
+<div class="card">
+	<div class="card-header">
+		<h3 class="mt-2">Danh Sách Đơn Hàng</h3>
+	</div>
+	<div class="card-body">
+		<table class="table table-bordered">
+			<thead >
+				<tr>
+						<th>Id</th>
+						<th>Tên Đăng Nhập</th>
+						<th>Địa Chỉ Đặt hàng</th>
+						<th>Ngày Đặt</th>
+						<th>Trạng Thái</th>
+						<th></th>
+					</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<td>{{item.id}}</td>
+						<td>{{item.account.username}}</td>
+						<td>{{item.address}}</td>
+						<td>{{item.createDate}}</td>
+						<td>{{item.status?'Đang giao':'Huỷ'}}</td>
+					<td class="text-center">
+						<button ng-click="edit(item)" class="btn btn-warning">
+							<i class="fa-solid fa-square-pen"></i>
+						</button>  
+						<a href="/order/detail/${item.id}" class="btn btn-secondary">
+								<b><i class="fa-solid fa-magnifying-glass"></i></b>
+							</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="card-footer text-center">
+		<!-- <button ng-click="pager.first()" class="btn btn-sm"
+			style="width: 42px;">
+			<i class="fa-solid fa-backward-step"></i>
+		</button> -->
+		<button ng-click="pager.previous()" class="btn btn-sm">
+			<i class="fas fa-chevron-left"></i>
+		</button>
+		<button class="btn btn-sm">{{pager.page+1}} of
+			{{pager.count}}</button>
+		<button ng-click="pager.next()" class="btn btn-sm">
+			<i class="fas fa-chevron-right"></i>
+		<!-- </button>
+		<button ng-click="pager.last()" class="btn btn-sm"
+			style="width: 42px;">
+			<i class="fa-solid fa-forward-step"></i>
+		</button> -->
+	</div>
+</div>

@@ -39,7 +39,7 @@ public class Controller_Register {
     @SuppressWarnings("unused")
     @RequestMapping("/register")
     public String registrator() {
-        boolean status = true;
+       
         return "security/register";
     }
     @PostMapping("/register")
@@ -61,14 +61,15 @@ public class Controller_Register {
                 item.setPhoto(filename);
                 item.setDatecreate(new Date());
                 item.setStatus(true);
+                
                 as.setAccount(item);
                 s.setId("CUST");
                 s.setName("Customer");
                 as.setRole(s);
                 ad.create(item);
                 ss.create(as);
-                System.out.println(item);
-                System.out.println(model);
+                
+                
                 model.addAttribute("message","Đăng ký thành công");
             } 
             catch (Exception e) {

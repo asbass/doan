@@ -2,7 +2,7 @@
 	th:replace="~{/layout/index::dynamic(~{::main})}">
 
 <main>
-<section class="banner_main">
+<section class="banner_main d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -86,13 +86,13 @@
 	                        <div class="carousel-product">
 	                            <div class="card text-left" th:each="item:${items}">
 		                            <a th:href="@{|/product/detail/${item.id}|}">
-		                                <img class="card-img-top" src="http://mamxehoi.com/upload/product/250x320x2/11-4546.jpg" alt="">
+		                                <img class="card-img-top" th:src="@{|/assets/images/${item.image}|}"  alt="">
 		                                <div class="card-body">
 		                                    <h2 th:utext="${item.getName()}"></h2>
 		                                    <span class="" th:utext="${item.getPrice()}"></span>
 		                                </div>
-		                                <button class="btn btn-outline-danger w-50 m-1">Add Cart</button>
 		                            </a>
+                                    <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">add cart</button>
 	                            </div>
 	                        </div>
                         <button class="button-carousel button-right"><i class="fas fa-arrow-right"></i></button>

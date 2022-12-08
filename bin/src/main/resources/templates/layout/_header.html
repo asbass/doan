@@ -20,18 +20,6 @@
 					</div>
 					<div class="col-md-4">
 						<div class="se_fonr1">
-							<form action="#">
-								<div class="select-box">
-									<label for="select-box1" class="label select-box1"><span
-										class="label-desc">English</span> </label> <select id="select-box1"
-										class="select">
-										<option value="Choice 1">English</option>
-										<option value="Choice 1">Falkla</option>
-										<option value="Choice 2">Germa</option>
-										<option value="Choice 3">Neverl</option>
-									</select>
-								</div>
-							</form>
 							<span class="time_o"> Mở cửa: 8.00 - 18.00</span>
 						</div>
 					</div>
@@ -54,26 +42,46 @@
 					<div class="col-md-4">
 						<ul class="right_icon d_none1">
 						<th:block th:if="${#request.remoteUser}">
-							<li class="nav-item"><a class="nav-link"
-								th:href="@{/security/logoff}">[[#{menu.logout}]]</a></li>
-							<li class="nav-item"><a class="nav-link"
-								th:href="@{/order/list}">[[#{menu.order}]]</a></li>
-							<li class="nav-item"
-								th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
-								<a class="nav-link" th:href="@{/admin/home/index}">[[#{menu.admin}]]</a>
-							</li>
+							<div class="dropdown">
+								<button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  <i class="fas fa-user"> &nbsp [[${#request.remoteUser}]]</i>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenu2">	
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/security/logoff}">[[#{menu.logout}]]</a>
+									</li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/order/list}">[[#{menu.order}]]</a>
+									</li>
+									
+									<li class="nav-item"
+										th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+										<a class="nav-link" th:href="@{/admin/home/index}">[[#{menu.admin}]]</a>
+									</li>
+								</div>
+							  </div>
 							
 						</th:block>
 						
 						<th:block th:unless="${#request.remoteUser}">
-							<li class="nav-item"><a class="nav-link"
-								th:href="@{/security/login/form}">[[#{menu.login}]]</a> <a
-								class="nav-link" th:href="@{/register}">Đăng kí</a>
-							</li>
-							<li class="nav-item">
-								<a th:href="@{/cart/view}"><img src="/images/shopping.png" alt="#" /></a>
-							</li>
+							<div class="dropdown">
+							  <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    <i class="fas fa-user"></i>
+							  </button>
+							  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">	
+							    <a class="dropdown-item" th:href="@{/security/login/form}">[[#{menu.login}]]</a>
+							    <a class="dropdown-item" th:href="@{/register}">Đăng kí</a>
+							  </div>
+							</div>
 						</th:block>
+						
+							<li class="nav-item">
+								<a th:href="@{/cart/view}"><img src="/images/shopping.png" alt="#" />
+									<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    									{{cart.count}}
+  									</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -97,9 +105,9 @@
 									<li class="nav-item"><a class="nav-link"
 										th:href="@{/product/list}">Cửa hàng</a></li>
 									<li class="nav-item"><a class="nav-link"
-										href="#gallary">Bộ sưu tập</a></li>
+										th:href="@{/home/galary}">Bộ sưu tập</a></li>
 									<li class="nav-item"><a class="nav-link"
-										href="fashion.html">Giới thiệu </a></li>
+										th:href="@{/home/about}">Giới thiệu </a></li>
 									<li class="nav-item">
 				 						<a class="nav-link" th:href="@{/order/list}">[[#{menu.order}]]</a>
 			  						</li>

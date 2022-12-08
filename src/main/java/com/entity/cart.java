@@ -30,6 +30,7 @@ public class cart  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	String Address;
+	Integer phone;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Createdate")
 	Date createDate = new Date();

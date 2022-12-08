@@ -1,6 +1,6 @@
 <html xmlns:th="http://wwww.thymeleaf.org" th:replace="~{/layout/index::dynamic(~{::main})}">
 	<main>
-		<div class="card border border-1 border-primary mt-3">
+		<div class="container mt-5">
 			<div class="card-header bg-primary text-white">
 				<h3 class="mt-2">YOUR ORDERS PURCHASED</h3>
 			</div>
@@ -22,7 +22,7 @@
 						<td>[[${order.address}]]</td>
 						<td>
 							<a th:href="@{|/order/detail/${order.id}|}" class="btn btn-secondary">
-								<b><i class="fa-solid fa-magnifying-glass"></i></b>
+								<b><i class="fas fa-search"></i></b>
 							</a>
 						</td>
 					</tr>

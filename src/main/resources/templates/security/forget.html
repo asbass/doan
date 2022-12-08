@@ -2,13 +2,13 @@
 <main>
     	         	    
 	        <div class="quenmk">
-	            <h3>Quên mật khẩu</h3>
+	            <h3>QuÃªn máº­t kháº©u</h3>
 	            <hr>
 	            <form action="/forget" method="POST">
 	            <div class="row">
 	                <div class="col">
 	                    <div class="form-group">
-	                        <!-- <label for="pwd">Máº­t kháº©u:</label> -->
+	                        <!-- <label for="pwd">MÃ¡ÂºÂ­t khÃ¡ÂºÂ©u:</label> -->
 	                        <input type="email" class="form-control" ng-model="form.email" name="email" placeholder="Email" required>
 	                    </div>
 	                    
@@ -17,10 +17,10 @@
 	                   
 	            </div> 
 				
-	            <button class="btn btn-primary button-forget"  type="submit">Lấy lại mật khẩu</button> 
+	            <button class="btn btn-primary button-forget"  type="submit">Láº¥y láº¡i máº­t kháº©u</button> 
 	                
-	            <div class="dangnhap"><a th:href="@{|/security/login/form|}">Đăng nhập</a> </div>
-    		    <h3 style="color: red; text-align: center;">{{param.message }}</h3>
+	            <div class="dangnhap"><a th:href="@{|/security/login/form|}">Ä�Äƒng nháº­p</a> </div>
+    		    <h3 th:text="${message}" style="color: red; text-align: center;" >[[${param.message}]]</h3>    
     			
     		</div>
     		</form>

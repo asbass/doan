@@ -24,6 +24,10 @@
 						<label>Shipping Address:</label>
 						<textarea th:field="*{address}" class="form-control" readonly="readonly" rows="3" cols="10"></textarea>
 					</div>
+					<div class="form-group col-sm">
+						<label>Phone:</label>
+						<input th:field="*{phone}" class="form-control" readonly="readonly" ></input>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -37,6 +41,7 @@
 						<th>Price</th>
 						<th>Quantity</th>
 						<th>Amount</th>
+						
 					</tr>
 				</thead>
 				<tbody>

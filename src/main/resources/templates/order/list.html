@@ -11,6 +11,7 @@
 						<th>Order No.</th>
 						<th>Order Date</th>
 						<th>Shipping Address</th>
+						<th>Phone</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -20,6 +21,7 @@
 						<td>[[${order.id}]]</td>
 						<td>[[${#dates.format(order.createDate,'dd-MM-yyyy')}]]</td>
 						<td>[[${order.address}]]</td>
+						<td>[[${order.phone}]]</td>
 						<td>
 							<a th:href="@{|/order/detail/${order.id}|}" class="btn btn-secondary">
 								<b><i class="fas fa-search"></i></b>
