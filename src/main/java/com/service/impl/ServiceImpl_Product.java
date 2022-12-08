@@ -92,7 +92,7 @@ public class ServiceImpl_Product implements Service_Product{
 	}
 	
 	@Override
-    public List<Product> findByKeywords(String keyword) {
-        return pDao.findByKeywords(keyword);
+    public Page<Product> findByKeywords(String keyword , Pageable pageable) {
+        return pDao.findByKeywords(keyword, pageable);
     }
 }

@@ -70,5 +70,5 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 	List<Object[]> top10Product();
 	
 	@Query("Select p From Product p WHERE  p.name like ?1")
-	List<Product> findByKeywords(String keyword);
+	Page<Product> findByKeywords(String keyword, Pageable pageable);
 }

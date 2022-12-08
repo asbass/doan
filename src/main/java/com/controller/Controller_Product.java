@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,8 +39,8 @@ public class Controller_Product {
 		Page<Product> list = null;
 		Sort sortOption = null;
 		//sort by search
-        if(!cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")) {
-            list = productService.findAllByNameLike(kw.get(),pageable);
+        if(cid.get().equals("null") && sort.get().equals("null")&& !kw.get().equals("null")) {
+            list = productService.findByKeywords(kw.get(),pageable);
             model.addAttribute("items", list);
             model.addAttribute("keywords", kw.get());
         }
@@ -117,13 +118,15 @@ public class Controller_Product {
 		return "product/details";
 	}
 	
-	@RequestMapping("search")
-	public String search(Model model,@RequestParam(value = "keyword") Optional<String> kw) {
+	@GetMapping("search")
+	public String search(Model model, @RequestParam("keywords") Optional<String> kw,
+			@RequestParam("p") Optional<Integer> p) {
+		Pageable pageable = PageRequest.of(p.orElse(0), 10);
+		Page<Product> list = null;
 	    String keywords = kw.orElse(session.get("keywords", ""));
         session.set("keywords", keywords);
-        List<Product> page = productService.findByKeywords("%"+keywords+"%");
+        Page<Product> page = productService.findByKeywords("%"+keywords+"%", pageable);
         model.addAttribute("items", page);
-	    return "products";
+	    return "product/products";
 	}
-	
 }
