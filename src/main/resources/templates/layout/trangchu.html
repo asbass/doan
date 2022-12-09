@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-bg">
-                        <h2> <span class="blodark"> LK.CAR </span> <br>THẾ GIỚI PHỤ KIỆN OTO</h2>
-                        <p>NƠI BÁN PHỤ KIỆN XE ĐẸP VÀ RẺ </p>
+                        <h2> <span class="blodark"> LK.SHOP </span> <br>THẾ GIỚI LINH KIỆN ĐIỆN TỬ</h2>
+                        <p>NƠI BÁN LINH KIỆN RẺ VÀ CHẤT LƯỢNG </p>
                         <a class="read_more" th:href="@{/product/list}">Mua ngay</a>
                     </div>
                 </div>
@@ -28,37 +28,37 @@
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx yellow_bg">
                         <i><img src="/images/tire.png" alt="#"/></i>
-                        <span>Lốp xe</span>
+                        <span>Điện Trở</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx bluedark_bg">
                         <i><img src="/images/shocks.png" alt="#"/></i>
-                        <span>Giảm sốc</span>
+                        <span>Tụ Điện</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx yellow_bg">
                         <i><img src="/images/brakes.png" alt="#"/></i>
-                        <span>Phanh</span>
+                        <span>Cuộn Cảm</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx bluedark_bg">
                         <i><img src="/images/lamp.png" alt="#"/></i>
-                        <span>Đèn</span>
+                        <span>Module</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx yellow_bg">
                         <i><img src="/images/technology.png" alt="#"/></i>
-                        <span>Đồ công nghệ</span>
+                        <span>IC</span>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-4 pa_left">
                     <div class="six_probpx bluedark_bg">
                         <i><img src="/images/wing.png" alt="#"/></i>
-                        <span>Nội thất</span>
+                        <span>Pin</span>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
 		                            <a th:href="@{|/product/detail/${item.id}|}">
 		                                <img class="card-img-top" th:src="@{|/assets/images/${item.image}|}"  alt="">
 		                                <div class="card-body">
-		                                    <h2 th:utext="${item.getName()}"></h2>
+		                                    <h2 th:utext="${item.getName()}" style="color: #000 !important;"></h2>
 		                                    <span class="" th:utext="${item.getPrice()}"></span>
 		                                </div>
 		                            </a>
@@ -108,7 +108,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="text_banner">
-                        <p>LK.CAR </p>
+                        <p>LK.SHOP </p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-md-3">
                     <div class="text_banner">
-                        <p>PHỤ KIỆN ĐẸP </p>
+                        <p>LINH KIỆN CHẤT </p>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@
                                 <label class="fs-3 text">Mô tả</label>
                                 <p class="w-100 h-50">[[*{description}]]</p>
                                 <div class="d-flex justify-content-between mt-5">
-                                    <h2 class="price">Giá: <span>[[*{price}]]</span></h2>
+                                    <h2 class="price" style="color: #000">Giá: <span>[[*{price}]]</span></h2>
                                     <div class="action">
                                         <a class="add-to-cart btn btn-danger" id="btnThemVaoGioHang" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}"> Thêm vào giỏ hàng</a>
                                     </div>

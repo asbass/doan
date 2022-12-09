@@ -35,7 +35,7 @@ public class Controller_Product {
 			@RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort
 			,@RequestParam(value="keywords",defaultValue = "null") Optional<String> kw) {
 		//Pageable
-		Pageable pageable = PageRequest.of(p.orElse(0), 5);
+		Pageable pageable = PageRequest.of(p.orElse(0), 10);
 		Page<Product> list = null;
 		Sort sortOption = null;
 		//sort by search
@@ -75,7 +75,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 5, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findAll(pageable);
 			model.addAttribute("items", list);
 		}
@@ -98,7 +98,7 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
-			pageable = PageRequest.of(p.orElse(0), 5, sortOption);
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findByCategoryID(cid.get(),pageable);
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());

@@ -52,8 +52,10 @@
                                 <div class="photo-main">
                                     <img th:src="@{|/assets/images/${item.image}|}" class="img-fluid" name="image" id="image" />
                                 </div>
-                                <h2 th:utext="${item.getName()}"></h2>
-                                <span th:utext="${item.getPrice()}"></span>
+                                <div class="project_about">
+                                    <h2 th:utext="${item.getName()}"></h2>
+                                    <span th:utext="${item.getPrice()}"></span>
+                                </div>
                             </a>
                             <div>
                                 <a class="btn btn-outline-danger w-100" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}"> Mua Ngay </a>
@@ -64,18 +66,18 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item" th:classappend="${items.number==0} ? disabled">
-                            <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number-1} &keywords=${ss}|}" aria-label="Previous">
+                            <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number-1} &keywords=${keywords}|}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
                         <th:block th:each="pagenumber:${pageNumbers}">
                             <li class="page-item" th:classappend="${pagenumber==items.number+1} ? active">
-                                <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${pagenumber-1} &keywords=${ss}|}">[[${pagenumber}]]</a>
+                                <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${pagenumber-1} &keywords=${keywords}|}">[[${pagenumber}]]</a>
                             </li>
                         </th:block>
 
                         <li class="page-item" th:classappend="${items.number==items.totalPages-1} ? disabled">
-                            <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number+1} &keywords=${ss}|}" aria-label="Next">
+                            <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number+1} &keywords=${keywords}|}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
