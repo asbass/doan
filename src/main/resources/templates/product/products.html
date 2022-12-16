@@ -6,21 +6,22 @@
         <div class="project">
             <div class="container">
                 <div class="row">
-                    <div class="product_category w-100 d-flex align-items-center mb-5 p-2">
-                        <div class="btn-group dropright">
-                            <strong>Chọn theo sản phẩm</strong>
-                            <button type="button" class="btn border border-dark border-opacity-25 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chọn</button>
-                            <div class="dropdown-menu">
+                    <div class="product_category w-100 d-flex align-items-center mb-5">
+                        <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <strong>Chọn theo sản phẩm:&nbsp;</strong>
+                            </button>
+                            <div class="dropdown-menu border border-dark border-opacity-25 w-100">
                                 <a class="dropdown-item" th:href="@{|/product/list|}">Tất Cả</a>
                                 <a class="dropdown-item" th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a>
                             </div>
                         </div>
                         <ul class="nav w-100 d-flex justify-content-end align-items-center">
-                            <li class="nav-item"><strong>Sắp xếp theo giá&nbsp</strong></li>
+                            <li class="nav-item"></li>
                             <li class="nav-item">
                                 <div class="dropdown">
-                                    <button class="btn border border-dark border-opacity-25 dropdown-toggle" type="button" data-toggle="dropdown">Không lựa chọn <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><strong>Sắp xếp theo giá:&nbsp;</strong><span class="caret"></span></button>
+                                    <ul class="dropdown-menu border border-dark border-opacity-25 w-100">
                                         <li>
                                             <a th:href="@{|/product/list?cid=${cateID}&sortBy=priceDown|}" class="list-group-item list-group-item-action"
                                                 ><b><i class="fa-solid fa-arrow-down-9-1 me-2"></i></b>[[#{sidebar.highest}]]</a
@@ -46,7 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="product_main m-t-2">
+                    <div class="product_main mt-2">
                         <div class="project_box" th:each="item:${items}">
                             <a th:href="@{|/product/detail/${item.id}|}">
                                 <div class="photo-main">
@@ -54,8 +55,8 @@
                                 </div>
                                 <div class="project_about">
                                     <h2 th:utext="${item.getName()}"></h2>
-                                    <span th:utext="${item.getPrice()}"></span>
                                 </div>
+                                <span th:utext="${item.getPrice()}"></span>
                             </a>
                             <div>
                                 <a class="btn btn-outline-danger w-100" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}"> Mua Ngay </a>
@@ -67,7 +68,7 @@
                     <ul class="pagination d-flex justify-content-center">
                         <li class="page-item" th:classappend="${items.number==0} ? disabled">
                             <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number-1} &keywords=${keywords}|}" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
+                                <span aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
                             </a>
                         </li>
                         <th:block th:each="pagenumber:${pageNumbers}">
@@ -78,7 +79,7 @@
 
                         <li class="page-item" th:classappend="${items.number==items.totalPages-1} ? disabled">
                             <a class="page-link" th:href="@{|product/list?cid=${cateID}&sortBy=${sort}&page=${items.number+1} &keywords=${keywords}|}" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
+                                <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
                             </a>
                         </li>
                     </ul>

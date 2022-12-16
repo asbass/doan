@@ -5,8 +5,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <ul class="conta_icon">
-                            <li>
+                        <ul class="conta_icon h-100">
+                            <li class="d-flex align-items-center h-100">
                                 <a><img src="/images/call.png" alt="#" />Hotline: 0999-333-9899</a>
                             </li>
                         </ul>
@@ -39,18 +39,18 @@
             <div class="container">
                 <div class="row d-flex">
                     <div class="col-md-4">
-                        <ul class="conta_icon d_none1">
-                            <li>
+                        <ul class="conta_icon d_none1 h-100">
+                            <li class="d-flex align-items-center h-100">
                                 <a><img src="/images/email.png" alt="#" /> lk.shop@gmail.com</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-4">
-                        <a class="logo" th:href="@{/home/index}"><img src="/images/logo.png" alt="#" /></a>
+                        <a class="logo d-flex align-items-center justify-content-center h-100" th:href="@{/home/index}"><img src="/images/logo.png" alt="#" /></a>
                     </div>
 
                     <div class="col-md-4">
-                        <ul class="right_icon d_none1">
+                        <ul class="right_icon d_none1 d-flex align-items-center h-100">
                             <th:block th:if="${#request.remoteUser}">
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

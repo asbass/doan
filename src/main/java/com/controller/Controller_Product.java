@@ -39,10 +39,9 @@ public class Controller_Product {
 		Page<Product> list = null;
 		Sort sortOption = null;
 		//sort by search
-        if(cid.get().equals("null") && sort.get().equals("null")&& !kw.get().equals("null")) {
+        if(!cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")) {
             list = productService.findByKeywords("%"+kw.get()+"%",pageable);
             model.addAttribute("items", list);
-			System.out.println(kw.get());
             model.addAttribute("keywords", kw.get());
         }
 		//sort by category
