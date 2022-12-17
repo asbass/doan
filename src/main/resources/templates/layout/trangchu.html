@@ -66,37 +66,35 @@
     </div>
     <!-- end six_box section -->
     <!-- project section -->
-    <div id="project" class="project">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>Một số sản phẩm nổi bật</h2>
-                    </div>
+    <div class="container" id="carousel">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Một số sản phẩm nổi bật</h2>
                 </div>
             </div>
-            <div class="row">
-                 <div class="carousel">
-                    <div class="carousel-title">
-                        <p>Sản phẩm mới nhất</p>
-                        <a th:href="@{/product/list}">Xem tất cả<i class="fas fa-angle-right"></i></a>
-                    </div>
-                    <div class="carousel-box">
-                        <button class="button-carousel button-left"><i class="fas fa-chevron-left"></i></i></button>
-	                        <div class="carousel-product">
-	                            <div class="card text-left" th:each="item:${items}">
-		                            <a th:href="@{|/product/detail/${item.id}|}">
-		                                <img class="card-img-top" th:src="@{|/assets/images/${item.image}|}"  alt="">
-		                                <div class="card-body">
-		                                    <h2 th:utext="${item.getName()}" style="color: #000 !important;"></h2>
-		                                    <span class="" th:utext="${item.getPrice()}"></span>
-		                                </div>
-		                            </a>
-                                    <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">Mua hàng</button>
-	                            </div>
-	                        </div>
-                        <button class="button-carousel button-right"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+        </div>
+        <div class="row">
+             <div class="carousel">
+                <div class="carousel-title">
+                    <p>Sản phẩm mới nhất</p>
+                    <a th:href="@{/product/list}">Xem tất cả<i class="fas fa-angle-right"></i></a>
+                </div>
+                <div class="carousel-box">
+                    <button class="button-carousel button-left"><i class="fas fa-chevron-left"></i></i></button>
+                        <div class="carousel-product">
+                            <div class="card text-left" th:each="item:${items}">
+                                <a th:href="@{|/product/detail/${item.id}|}">
+                                    <img class="card-img-top" th:src="@{|/assets/images/${item.image}|}"  alt="">
+                                    <div class="card-body">
+                                        <h2 th:utext="${item.getName()}" style="color: #000 !important;"></h2>
+                                        <span class="" th:utext="${item.getPrice()}" style="color: rgb(180, 180, 16);"></span>
+                                    </div>
+                                </a>
+                                <button class="btn btn-outline-danger btn-sm w-50 m-1" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}">Mua hàng</button>
+                            </div>
+                        </div>
+                    <button class="button-carousel button-right"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>

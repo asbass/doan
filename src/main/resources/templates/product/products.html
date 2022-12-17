@@ -56,7 +56,7 @@
                                 <div class="project_about">
                                     <h2 th:utext="${item.getName()}"></h2>
                                 </div>
-                                <span th:utext="${item.getPrice()}"></span>
+                                <span th:utext="${item.getPrice()} + ' Đ'"></span>
                             </a>
                             <div>
                                 <a class="btn btn-outline-danger w-100" th:classappend="${item.available}?'':disabled" th:attr="ng-click=@{|cart.add(${item.id})|}"> Mua Ngay </a>

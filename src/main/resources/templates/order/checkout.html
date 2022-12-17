@@ -18,13 +18,17 @@
                 </div>
                 <div class="row mt-2">
                     <div class="form-group">
-                        <label>Đia chỉ:</label>
-                        <textarea ng-model="order.address" rows="3" cols="10" class="form-control"></textarea>
+                        <label style="color: #111">Đia chỉ:</label>
+                        <textarea ng-model="order.address" rows="3" cols="10" required class="form-control"></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Sđt:</label>
-                        <input ng-model="order.phone" class="form-control" />
+                        <label style="color: #111">Sđt:</label>
+                        <input ng-model="order.phone" type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" />
                     </div>
+                    <!-- <div class="form-group">
+                        <label>Sđt:</label>
+                        <input ng-model="order.phone" type="number" required class="form-control" />
+                    </div> -->
                 </div>
             </div>
             <div class="card-footer text-end">
