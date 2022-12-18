@@ -276,7 +276,7 @@ main {
     background-color: #fff;
     width: 100%;
     position: fixed;
-    z-index: 100;
+    z-index: 100000000000;
     top: 0%;
 }
 
