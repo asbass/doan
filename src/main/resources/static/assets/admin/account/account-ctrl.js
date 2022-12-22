@@ -124,10 +124,10 @@ app.controller("account-ctrl",function($scope,$http,$location){
 			var index = $scope.items.findIndex(p=>p.username == item.username);
 			$scope.items.splice(index,1);
 			$scope.reset();
-			alert('Xoá sản phẩm thành công!');
+			alert('Xoá tài khoản thành công!');
 			console.log(resp.data);
 		}).catch(err=>{
-			alert('Lỗi xoá sản phẩm!')
+			alert('Lỗi xoá tài khoản!')
 			console.log("Error ",err);
 		})
 		}

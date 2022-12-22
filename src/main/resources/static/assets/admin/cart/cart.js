@@ -25,10 +25,10 @@ app.controller("shopping-cart-ctrl", function($scope, $http, $location) {
 		$http.put(`/rest/orders/${item.id}`,item).then(resp=>{
 			var index = $scope.items.findIndex(p=>p.id == item.id);
 			$scope.items[index] = item;
-			alert('Cập nhật sản phẩm thành công!');
+			alert('Cập nhật danh mục thành công!');
 			console.log(resp.data);
 		}).catch(err=>{
-			alert('Lỗi cập nhật sản phẩm!')
+			alert('Lỗi cập nhật danh mục!')
 			console.log("Error ",err);
 		})
 	}
