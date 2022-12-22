@@ -43,7 +43,7 @@ public class RestController_Summary {
 		map.put("totalProduct", productService.getTotalProduct());
 		map.put("todayIncome", orderDetailService.getTodayIncome());
 		map.put("totalIncome", orderDetailService.getTotalIncome());
-	map.put("totalCustomer", authService.getTotalCustomer());
+		map.put("totalCustomer", authService.getTotalCustomer());
 		map.put("totalAccount", accountService.getTotalAccount());
 		return map;
 	}
