@@ -5,6 +5,7 @@
     background: #f7544a;
     color: #fff;
 }
+
 .shop-table {
     position: relative;
     width: 100%;
@@ -33,7 +34,6 @@
 }
 .shop-table tr {
     width: 100%;
-    display: table;
 }
 .shop-table th:first-child,
 .shop-table td:first-child {

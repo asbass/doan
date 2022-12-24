@@ -17,7 +17,7 @@ public class MailInfo {
 	String[] attachments;
 	public MailInfo(String to, String subject, String body) {
 		super();
-		this.from = "LK.CAR <poly@fpt.edu.vn>";
+		this.from = "LK.SHOP <poly@fpt.edu.vn>";
 		this.to = to;
 		this.subject = subject;
 		this.body ="Xin chào quý khách. Mật khẩu của bạn là: "+ body;

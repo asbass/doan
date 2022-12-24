@@ -30,7 +30,7 @@ public class RestController_Summary {
 	@Autowired private Service_Account accountService;
 	@Autowired private Service_Authority authService;
 	
-	@Autowired private DAO_OrderDetail daodt;
+	@Autowired private DAO_OrderDetail daodt; 
 	
 	@Autowired private XDate xdate;
 	/* -- First Row Content -- */
@@ -41,8 +41,8 @@ public class RestController_Summary {
 		map.put("totalOrder", orderService.totalOrder());
 		map.put("available", productService.getAvailable());
 		map.put("totalProduct", productService.getTotalProduct());
-		map.put("todayIncome", orderDetailService.getTodayIncome());
-		map.put("totalIncome", orderDetailService.getTotalIncome());
+		map.put("todayIncome", orderDetailService.tongngay());
+		map.put("totalIncome", orderDetailService.sum());
 		map.put("totalCustomer", authService.getTotalCustomer());
 		map.put("totalAccount", accountService.getTotalAccount());
 		return map;

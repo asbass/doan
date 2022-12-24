@@ -37,7 +37,7 @@ public class Controller_Forget {
 	@PostMapping("/forget")
 	public String forget2(Model model, @RequestParam("email") String e) {
 		Optional<Account> account = ad.findByEmail(e);
-		MailInfo mail = new MailInfo(e, "LK.CAR Cấp lại mật khẩu", account.get().getPassword());
+		MailInfo mail = new MailInfo(e, "LK.SHOP Cấp lại mật khẩu", account.get().getPassword());
 		try {
 			ms.send(mail);
 			model.addAttribute("message", "Vui lòng check email để lấy lại mật khẩu");

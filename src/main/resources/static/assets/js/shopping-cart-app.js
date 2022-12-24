@@ -61,6 +61,18 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
     };
     $scope.cart.loadFromLocalStorage();
 
+    $scope.checkout = document.querySelector("#checkout");
+    if ($scope.checkout != undefined) {
+        $scope.checkout.addEventListener("click", (e) => {
+            e.preventDefault();
+            if ($scope.cart.count > 0) {
+                window.location.replace("/order/checkout");
+            } else {
+                alert("Vui lòng mua thêm sản phẩm");
+            }
+        });
+    }
+
     $scope.order = {
         createDate: new Date(),
         address: "",
