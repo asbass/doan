@@ -1,15 +1,10 @@
 /*Shopping cart table style*/
-.shopping-cart {
-}
-.shopping-cart button:hover {
-    background: #f7544a;
-    color: #fff;
-}
 
 .shop-table {
     position: relative;
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 10px;
 }
 .shop-table th {
     font-size: 16px;

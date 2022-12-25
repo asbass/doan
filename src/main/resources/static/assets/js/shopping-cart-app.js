@@ -21,6 +21,19 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             }
         },
 
+        reduction(id) {
+            var item = this.items.find((item) => item.id == id);
+            if (item.qty > 1) {
+                item.qty--;
+                this.saveToLocalStorage();
+            } else {
+                $http.get(`rest/products/${id}`).then((resp) => {
+                    this.items.splice(item, 1);
+                    this.saveToLocalStorage();
+                });
+            }
+        },
+
         //Xoá sản phẩm khỏi giỏ hàng
         remove(id) {
             var index = this.items.findIndex((item) => item.id == id);
@@ -59,6 +72,7 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
             this.items = json ? JSON.parse(json) : [];
         },
     };
+
     $scope.cart.loadFromLocalStorage();
 
     $scope.checkout = document.querySelector("#checkout");

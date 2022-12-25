@@ -13,6 +13,6 @@ import com.entity.dtn;
 public interface DAO_OrderDetail extends JpaRepository<OrderDetail, Long>{
 	@Query("SELECT new com.entity.TongTien(sum(f.price*f.quantity)) FROM OrderDetail f")
 	TongTien sum();
-	@Query("SELECT new com.entity.dtn(sum(f.price*f.quantity))FROM OrderDetail f inner join cart c on c.id = f.cart where c.createDate > TODAY()")
+	@Query("SELECT new com.entity.dtn(CASE WHEN sum(f.price*f.quantity) > 0 then sum(f.price*f.quantity) else '0'  end)FROM OrderDetail f  where DAY(f.cart.createDate) =  DAY(current_date())")
 	dtn tongngay();
 }

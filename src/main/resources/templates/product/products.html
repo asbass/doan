@@ -13,7 +13,7 @@
                             </button>
                             <div class="dropdown-menu border border-dark border-opacity-25 w-100">
                                 <a class="dropdown-item" th:href="@{|/product/list|}">Tất Cả</a>
-                                <a class="dropdown-item" th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}">[[${c.name}]]</a>
+                                <a class="dropdown-item" th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}&keywords=${keywords}|}">[[${c.name}]]</a>
                             </div>
                         </div>
                         <ul class="nav w-100 d-flex justify-content-end align-items-center">
@@ -23,22 +23,22 @@
                                     <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><strong>Sắp xếp theo giá:&nbsp;</strong><span class="caret"></span></button>
                                     <ul class="dropdown-menu border border-dark border-opacity-25 w-100">
                                         <li>
-                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=priceDown|}" class="list-group-item list-group-item-action"
+                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=priceDown&keywords=${keywords}|}" class="list-group-item list-group-item-action"
                                                 ><b><i class="fa-solid fa-arrow-down-9-1 me-2"></i></b>[[#{sidebar.highest}]]</a
                                             >
                                         </li>
                                         <li>
-                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=priceUp|}" class="list-group-item list-group-item-action"
+                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=priceUp&keywords=${keywords}|}" class="list-group-item list-group-item-action"
                                                 ><b><i class="fa-solid fa-arrow-up-1-9 me-2"></i></b>[[#{sidebar.lowest}]]</a
                                             >
                                         </li>
                                         <li>
-                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=dateDown|}" class="list-group-item list-group-item-action"
+                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=dateDown&keywords=${keywords}|}" class="list-group-item list-group-item-action"
                                                 ><b><i class="fa-solid fa-arrow-down-a-z me-2"></i></b>[[#{sidebar.newDate}]]</a
                                             >
                                         </li>
                                         <li>
-                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=dateUp|}" class="list-group-item list-group-item-action"
+                                            <a th:href="@{|/product/list?cid=${cateID}&sortBy=dateUp&keywords=${keywords}|}" class="list-group-item list-group-item-action"
                                                 ><b><i class="fa-solid fa-arrow-up-z-a me-2"></i></b>[[#{sidebar.oldDate}]]</a
                                             >
                                         </li>

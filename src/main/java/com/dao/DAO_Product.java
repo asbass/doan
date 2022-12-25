@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.entity.Product;
@@ -68,7 +69,8 @@ public interface DAO_Product extends JpaRepository<Product, Integer>{
 			+ "group by p.Name "
 			+ "order by mostSold desc",nativeQuery = true)
 	List<Object[]> top10Product();
-	
+	@Query("Select p From Product p WHERE  p.name like :kw and p.category.id=:cate")
+	Page<Product> findByKeywordsandcate(@Param("kw") String keyword, Pageable pageable,@Param("cate") String cid);
 	@Query("Select p From Product p WHERE  p.name like ?1")
 	Page<Product> findByKeywords(String keyword, Pageable pageable);
 }

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.entity.Product;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.service.SessionService;
 import com.service.Service_Product;
 
@@ -39,7 +40,7 @@ public class Controller_Product {
 		Page<Product> list = null;
 		Sort sortOption = null;
 		//sort by search
-        if(!cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")) {
+        if(cid.get().equals("null") && sort.get().equals("null")&& !kw.get().equals("null")) {
             list = productService.findByKeywords("%"+kw.get()+"%",pageable);
             model.addAttribute("items", list);
             model.addAttribute("keywords", kw.get());
@@ -50,13 +51,19 @@ public class Controller_Product {
 			model.addAttribute("items", list);
 			model.addAttribute("cateID", cid.get());
 		}
+		if(!cid.get().equals("null") && sort.get().equals("null")&& !kw.get().equals("null")) {
+			list = productService.findByKeywordsandcate("%"+kw.get()+"%",pageable,cid.get());
+			model.addAttribute("items", list);
+			model.addAttribute("cateID", cid.get());
+			model.addAttribute("keywords", kw.get());
+		}
 		//onload, no sort option
 		if(cid.get().equals("null") && sort.get().equals("null")&& kw.get().equals("null")){
 			list = productService.findAll(pageable);
 			model.addAttribute("items", list);
 		}
 		//sort by price and date
-		if(!sort.get().equals("null") && cid.get().equals("null")) {
+		if(!sort.get().equals("null") && cid.get().equals("null")&& !kw.get().equals("null")) {
 			//Price down
 			if(sort.get().equals("priceDown")) {
 				sortOption = Sort.by(Direction.DESC, "price");
@@ -79,7 +86,7 @@ public class Controller_Product {
 			model.addAttribute("items", list);
 		}
 		
-		if(!sort.get().equals("null") && !cid.get().equals("null")) {
+		if(!sort.get().equals("null") && !cid.get().equals("null")&& !kw.get().equals("null")) {
 			//Price down
 			if(sort.get().equals("priceDown")) {
 				sortOption = Sort.by(Direction.DESC, "price");
@@ -99,8 +106,33 @@ public class Controller_Product {
 			}
 			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findByCategoryID(cid.get(),pageable);
+			list = productService.findByKeywords("%"+kw.get()+"%",pageable);
 			model.addAttribute("items", list);
+			model.addAttribute("keywords", kw.get());
 			model.addAttribute("cateID", cid.get());
+		}
+		if(!sort.get().equals("null") && cid.get().equals("null")&& !kw.get().equals("null")) {
+			//Price down
+			if(sort.get().equals("priceDown")) {
+				sortOption = Sort.by(Direction.DESC, "price");
+			}
+			//price up
+			if(sort.get().equals("priceUp")) {
+				sortOption = Sort.by(Direction.ASC, "price");
+			}
+			//Date down
+			if(sort.get().equals("dateDown")) {
+				sortOption = Sort.by(Direction.DESC, "createDate");
+			}
+			//Date up
+			if(sort.get().equals("dateUp")) {
+				sortOption = Sort.by(Direction.ASC, "createDate");
+				
+			}
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
+			list = productService.findByKeywords("%"+kw.get()+"%",pageable);
+			model.addAttribute("items", list);
+			model.addAttribute("keywords", kw.get());
 		}
 		int totalPages = list.getTotalPages();
 		List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
@@ -122,11 +154,16 @@ public class Controller_Product {
 	public String search(Model model, @RequestParam("keywords") Optional<String> kw,
 			@RequestParam("p") Optional<Integer> p) {
 		Pageable pageable = PageRequest.of(p.orElse(0), 10);
-		Page<Product> list = null;
 	    String keywords = kw.orElse(session.get("keywords", ""));
         session.set("keywords", keywords);
         Page<Product> page = productService.findByKeywords("%"+keywords+"%", pageable);
+				int totalPages = page.getTotalPages();
+				List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
+				.boxed()
+				.collect(Collectors.toList());
+				model.addAttribute("pageNumbers", pageNumbers);
         model.addAttribute("items", page);
+		model.addAttribute("keywords", keywords);
 	    return "product/products";
 	}
 }

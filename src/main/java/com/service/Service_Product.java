@@ -38,5 +38,7 @@ public interface Service_Product{
 	List<Object[]> top10Product();
 
 	Page<Product> findByKeywords(String keyword ,Pageable pageable);
+	
+	Page<Product> findByKeywordsandcate(String keyword, Pageable pageable,String cid);
 
 }
