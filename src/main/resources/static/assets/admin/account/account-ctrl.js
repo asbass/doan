@@ -62,8 +62,8 @@ app.controller("account-ctrl", function ($scope, $http, $location) {
 
     //Hiển thị lên form
     $scope.edit = function (item) {
-        console.log(item);
         $scope.form = angular.copy(item);
+        $scope.form.datebirth = new Date(item.datebirth);
         $scope.form.datecreate = new Date(item.datecreate);
         $scope.getOneByRole(item.username);
         $("#pills-home-tab").tab("show");
@@ -112,14 +112,9 @@ app.controller("account-ctrl", function ($scope, $http, $location) {
                     //sau khi xoá thì thêm mới lại role đã chọn
                     $scope.selection.forEach((r) => {
                         var authority = { account: item, role: r };
-                        $http
-                            .post(`/rest/authorities`, authority)
-                            .then((resp) => {
-                                $scope.items.push(resp.data);
-                            })
-                            .catch((err) => {
-                                console.log("Error ", err);
-                            });
+                        $http.post(`/rest/authorities`, authority).catch((err) => {
+                            console.log("Error ", err);
+                        });
                     });
                 });
                 alert("Cập nhật tài khoản thành công!");
@@ -175,12 +170,10 @@ app.controller("account-ctrl", function ($scope, $http, $location) {
                 console.log("Error ", err);
             });
     };
-    //khởi đầu
-    $scope.initialize();
 
     $scope.pager = {
         page: 0,
-        size: 10,
+        size: 8,
         get items() {
             var start = this.page * this.size;
             return $scope.items.slice(start, start + this.size);
@@ -207,4 +200,6 @@ app.controller("account-ctrl", function ($scope, $http, $location) {
             this.page = this.count - 1;
         },
     };
+    //Khởi đầu
+    $scope.initialize();
 });

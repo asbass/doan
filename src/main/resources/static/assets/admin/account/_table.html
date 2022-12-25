@@ -25,9 +25,9 @@
 					<td>{{item.email}}</td>
 					<td><img height="50px" width="50px" ng-src="/assets/avatar/{{item.photo}}" alt=""></td>
 					<td>{{item.sex? 'nam':'nữ'}}</td>
-					<td>{{item.datecreate}}</td>
+					<td>{{item.datecreate | date:'MM/dd/yyyy'}}</td>
 					<td>{{item.status?'hoạt động' :'không hoạt động'}}</td>
-        			<td>{{item.datebirth}}</td>
+        			<td >{{item.datebirth | date:'MM/dd/yyyy'}}</td>
 					<td class="text-center">
 						<button ng-click="edit(item)" class="btn btn-outline-success rounded-circle btn-cus"><i
 								class="fa-solid fa-square-pen"></i></button>
