@@ -24,5 +24,6 @@ public interface DAO_Authority extends JpaRepository<Authority, Integer>{
 	@Modifying
 	@Query("Delete from Authority where Username = ?1")
 	void deleteByUserName(String username);
+	// @Query(value = "Select * From Authority inner join Accou", nativeQuery = true)
 
 }

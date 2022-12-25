@@ -7,10 +7,6 @@ import com.entity.dtn;
 
 @Service
 public interface Service_OrderDetail {
-
-	Double getTodayIncome();
-
-	Double getTotalIncome();
 	TongTien sum(); 
 	dtn tongngay();
 	

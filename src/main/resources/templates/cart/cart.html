@@ -68,7 +68,7 @@
 								<a th:href="@{/product/list}" class="button-44">Tiếp tục mua hàng</a>
 							</div>
 							<div class="col-md-4 d-flex align-items-center justify-content-center">
-								<a th:href="@{|order/checkout|}" class="button-44" id="checkout">Thanh toán sản phẩm</a>
+								<a th:href="@{|order/checkout|}" class="button-44" id="checkout" th:if="${#httpServletRequest.requestURI == '/cart/view'}">Thanh toán sản phẩm</a>
 							</div>
 						</div>
 					</div>
@@ -78,4 +78,8 @@
 			</div>
 			
 </main>
+<!-- <script>
+	var url = window.location.pathname;
+	if(url.e)
+</script> -->
 </html>

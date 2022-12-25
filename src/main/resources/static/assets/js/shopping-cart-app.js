@@ -102,20 +102,25 @@ app.controller("shopping-cart-ctrl", function ($scope, $http) {
                 };
             });
         },
+
         purchase() {
             var cart = angular.copy(this);
-            //Thực hiện đặt hàng
-            $http
-                .post("/rest/orders", cart)
-                .then((resp) => {
-                    alert("Đặt hàng thành công!");
-                    $scope.cart.clear();
-                    location.href = "/order/detail/" + resp.data.id;
-                })
-                .catch((err) => {
-                    alert("Đặt hàng lỗi!");
-                    console.log(err);
-                });
+            var form = document.querySelector("#form-order");
+            if ($scope.order.address != "" && $scope.order.phone != "") {
+                $http
+                    .post("/rest/orders", cart)
+                    .then((resp) => {
+                        //Thực hiện đặt hàn
+                        alert("Đặt hàng thành công!");
+                        $scope.cart.clear();
+                        location.href = "/order/detail/" + resp.data.id;
+                    })
+                    .catch((err) => {
+                        alert("Đặt hàng lỗi!");
+                    });
+            } else {
+                alert("Vui lòng nhập đủ thông tin");
+            }
         },
     };
 });

@@ -1,7 +1,10 @@
 package com.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.ServletContext;
 
@@ -28,55 +31,77 @@ import com.service.Service_Authority;
 
 @Controller
 public class Controller_Register {
-    
+    String tam = null;
     @Autowired
-    Service_Account ad;
+    Service_Account SV_account;
     @Autowired
-    Service_Authority ss;
+    Service_Authority SV_Author;
     @Autowired
     ServletContext app;
+    @Autowired
+    DAO_Account daoac;
     
     @SuppressWarnings("unused")
     @RequestMapping("/register")
     public String registrator() {
-        boolean status = true;
         return "security/register";
     }
-    @PostMapping("/register")
-  public String registrator2(Account item,Role s,Authority as,Model model,@RequestParam("images") MultipartFile image) {
-        /*
-         * a.setPhoto("user.png");
-         * ad.save(a);
-         * ra.addAttribute("message", "Thanh Cong");
-         */
-      if(image.isEmpty()){
-            model.addAttribute("message", "Vui lòng chọn file !");
-        }
-        else{
-            try {
-                String filename = image.getOriginalFilename();
-                //String path = app.getRealPath("/images/"+filename);
-                File file = new File(app.getRealPath("/assets/avatar/"+filename));
-                image.transferTo(file);
-                item.setPhoto(filename);
-                item.setDatecreate(new Date());
-                item.setStatus(true);
-                as.setAccount(item);
-                s.setId("CUST");
-                s.setName("Customer");
-                as.setRole(s);
-                ad.create(item);
-                ss.create(as);
-                System.out.println(item);
-                System.out.println(model);
-                model.addAttribute("message","Đăng ký thành công");
-            } 
-            catch (Exception e) {
-                model.addAttribute("message", "Lỗi lưu file !");
-                
-            }
-        }
-      return "security/register";
-  }
+    
+    @SuppressWarnings("unused")
+	@PostMapping("/register")
+
+    public String registrator2(Account item,Role role,Authority author,Model model,@RequestParam("images") MultipartFile image) {
+        
+        if(image.isEmpty()){
+              model.addAttribute("message", "Vui lòng chọn file !");
+          }
+          else{
+        		  try {
+                      String filename = image.getOriginalFilename();
+                      //String path = app.getRealPath("/images/"+filename);
+                      File file = new File(app.getRealPath("/assets/avatar/"+filename));
+                      image.transferTo(file);
+                      
+                      item.setPhoto(filename);
+                      item.setDatecreate(new Date());
+                      item.setStatus(true);
+                      
+                      author.setAccount(item);
+                      
+                      role.setId("CUST");
+                      role.setName("Customer");
+                      author.setRole(role);
+                      
+                      
+                      List<Account> acc = daoac.findAll();
+                      acc.forEach(oldUsername ->{
+                    	 if(oldUsername.getUsername().equals(item.getUsername()) || oldUsername.getEmail().equals(item.getEmail())) {
+                    		 tam = item.getUsername();           		 
+                    	 }
+                      });
+                      
+                      if(tam != null) {
+                     		model.addAttribute("message","Tên tài khoản hoặc email đã tồn tại");
+tam= null;
+                  	 }
+                  	 else {
+                   		SV_account.create(item);
+//                     	System.out.println(item.getEmail());
+                   		SV_Author.create(author);
+                        model.addAttribute("message","Đăng ký thành công");
+                   	  }   
+                       
+                      
+                  } 
+                  catch (Exception e) {
+                      model.addAttribute("message", "Lỗi lưu file !");
+                      System.out.println(e);
+                      
+                  }
+        	  }
+        	  
+          
+        return "security/register";
+    }
     
 }

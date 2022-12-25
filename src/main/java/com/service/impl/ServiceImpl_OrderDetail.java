@@ -31,15 +31,6 @@ public class ServiceImpl_OrderDetail implements Service_OrderDetail{
 	}
 	@Override
 	public dtn tongngay() {
-		System.out.println("sdasd");
-		if(ss.tongngay() != null){
-			System.out.println("sdasd");
-			return ss.tongngay();
-		}else{
-			dtn dtn = new dtn();
-			dtn.setTttn(0);
-			System.out.println(dtn);
-			return dtn ;
-		}
+		return ss.tongngay();
 	}
 }
