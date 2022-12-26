@@ -63,7 +63,7 @@ public class Controller_Product {
 			model.addAttribute("items", list);
 		}
 		//sort by price and date
-		if(!sort.get().equals("null") && cid.get().equals("null")&& !kw.get().equals("null")) {
+		if(!sort.get().equals("null") && cid.get().equals("null")&& kw.get().equals("null")) {
 			//Price down
 			if(sort.get().equals("priceDown")) {
 				sortOption = Sort.by(Direction.DESC, "price");
@@ -104,6 +104,8 @@ public class Controller_Product {
 				sortOption = Sort.by(Direction.ASC, "createDate");
 				
 			}
+
+			
 			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
 			list = productService.findByCategoryID(cid.get(),pageable);
 			list = productService.findByKeywords("%"+kw.get()+"%",pageable);
@@ -111,6 +113,33 @@ public class Controller_Product {
 			model.addAttribute("keywords", kw.get());
 			model.addAttribute("cateID", cid.get());
 		}
+
+		if(!sort.get().equals("null") && !cid.get().equals("null")&& kw.get().equals("null")) {
+			//Price down
+			if(sort.get().equals("priceDown")) {
+				sortOption = Sort.by(Direction.DESC, "price");
+			}
+			//price up
+			if(sort.get().equals("priceUp")) {
+				sortOption = Sort.by(Direction.ASC, "price");
+			}
+			//Date down
+			if(sort.get().equals("dateDown")) {
+				sortOption = Sort.by(Direction.DESC, "createDate");
+			}
+			//Date up
+			if(sort.get().equals("dateUp")) {
+				sortOption = Sort.by(Direction.ASC, "createDate");
+				
+			}
+
+			
+			pageable = PageRequest.of(p.orElse(0), 10, sortOption);
+			list = productService.findByCategoryID(cid.get(),pageable);
+			model.addAttribute("items", list);
+			model.addAttribute("cateID", cid.get());
+		}
+
 		if(!sort.get().equals("null") && cid.get().equals("null")&& !kw.get().equals("null")) {
 			//Price down
 			if(sort.get().equals("priceDown")) {
@@ -152,7 +181,7 @@ public class Controller_Product {
 	
 	@GetMapping("search")
 	public String search(Model model, @RequestParam("keywords") Optional<String> kw,
-			@RequestParam("p") Optional<Integer> p) {
+			@RequestParam("p") Optional<Integer> p, @RequestParam(value="sortBy",defaultValue = "null")Optional<String>sort) {
 		Pageable pageable = PageRequest.of(p.orElse(0), 10);
 	    String keywords = kw.orElse(session.get("keywords", ""));
         session.set("keywords", keywords);

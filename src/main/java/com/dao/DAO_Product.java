@@ -14,6 +14,8 @@ import com.entity.Product;
 
 @Repository
 public interface DAO_Product extends JpaRepository<Product, Integer>{
+	@Query("Select p From Product p ORDER BY createDate desc ")
+	List<Product> findNewProducts();
 
 	@Query("Select p From Product p Where p.category.id=?1")
 	List<Product> findByCategoryId(String cid);

@@ -88,6 +88,7 @@ app.controller("account-ctrl", function ($scope, $http, $location) {
                         .catch((err) => {
                             console.log("Error ", err);
                         });
+                    window.location.reload();
                 });
                 $scope.reset();
                 alert("Thêm tài khoản thành công!");

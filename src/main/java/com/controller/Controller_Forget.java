@@ -41,6 +41,7 @@ public class Controller_Forget {
 		try {
 			ms.send(mail);
 			model.addAttribute("message", "Vui lòng check email để lấy lại mật khẩu");
+			return "security/login";
 		} catch (MessagingException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

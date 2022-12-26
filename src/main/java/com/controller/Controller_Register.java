@@ -43,7 +43,8 @@ public class Controller_Register {
     
     @SuppressWarnings("unused")
     @RequestMapping("/register")
-    public String registrator() {
+    public String registrator(Model model) {
+        model.addAttribute("checked", true);
         return "security/register";
     }
     

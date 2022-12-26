@@ -20,7 +20,7 @@ public class Controller_Home {
     
 	@GetMapping({"","home/index"})
 	public String home(Model model) {
-	    List<Product> list = daoPD.findAll();
+	    List<Product> list = daoPD.findNewProducts();
         if(list != null) {
             model.addAttribute("items",list);
         }

@@ -98,7 +98,12 @@ public class ServiceImpl_Product implements Service_Product{
 	
 	@Override
 	public Page<Product> findByKeywordsandcate(String keyword, Pageable pageable, String cid) {
-		// TODO Auto-generated method stub
 		return pDao.findByKeywordsandcate(keyword, pageable, cid);
+	}
+
+
+	@Override
+	public List<Product> findNewProducts() {
+		return pDao.findNewProducts();
 	}
 }

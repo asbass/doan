@@ -1,13 +1,21 @@
 app.controller("cate-ctrl", function ($scope, $http) {
     $scope.items = [];
     $scope.form = {};
-
+    $scope.reloadRoute = function () {
+        $state.reload();
+    };
     $scope.initialize = function () {
         //load cate
         $http.get("/rest/Categories").then((resp) => {
             $scope.items = resp.data;
             console.log(resp.data);
         });
+    };
+
+    //reset
+
+    $scope.reset = function () {
+        $scope.form = {};
     };
 
     //Hiển thị lên form
@@ -25,6 +33,7 @@ app.controller("cate-ctrl", function ($scope, $http) {
                 $scope.items.push(resp.data);
                 alert("Thêm mới danh mục thành công!");
                 console.log(resp.data);
+                $scope.reset();
             })
             .catch((err) => {
                 alert("Lỗi thêm mới danh mục!");
@@ -42,6 +51,7 @@ app.controller("cate-ctrl", function ($scope, $http) {
                 $scope.items[index] = item;
                 alert("Cập nhật sản phẩm thành công!");
                 console.log(resp.data);
+                $scope.reset();
             })
             .catch((err) => {
                 alert("Lỗi cập nhật sản phẩm!");
@@ -58,6 +68,7 @@ app.controller("cate-ctrl", function ($scope, $http) {
                 $scope.items.splice(index, 1);
                 alert("Xoá sản phẩm thành công!");
                 console.log(resp.data);
+                $scope.reset();
             })
             .catch((err) => {
                 alert("Lỗi xoá sản phẩm!");
@@ -96,4 +107,5 @@ app.controller("cate-ctrl", function ($scope, $http) {
     };
     //Khởi đầu
     $scope.initialize();
+    $scope.reset();
 });

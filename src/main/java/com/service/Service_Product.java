@@ -10,6 +10,8 @@ import com.entity.Product;
 public interface Service_Product{
 
 	Page<Product> findAll(Pageable pageable);
+
+	List<Product> findNewProducts();
 	
 	Page<Product> findByCategoryID(String cid,Pageable pageable);
 	List<Product> findAll();
